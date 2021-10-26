@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 78e9c9ee0cf6a7941b11cd924d09f659
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: "Kantenschutz f\xFCr Spanplatte"
+    100002: "Kantenschutz hinten f\xFCr Spanplatte"
+    100004: "L\xE4ngstraverse1"
+    100006: "L\xE4ngstraverse2"
+    100008: "L\xE4ngstraverse3"
+    100010: "L\xE4ngstraverse4"
+    100012: "L\xE4ngstraverse5"
+    100014: Palette
+    100016: //RootNode
+    100018: Rahmen links
+    100020: Rahmen rechts
+    100022: Spanplatte
+    100024: Stahlpaneele
+    100026: Tiefenauflage
+    100028: Tiefenauflage2
+    100030: Unterfahrauflage
+    100032: Unterfahrauflage.001
+    400000: "Kantenschutz f\xFCr Spanplatte"
+    400002: "Kantenschutz hinten f\xFCr Spanplatte"
+    400004: "L\xE4ngstraverse1"
+    400006: "L\xE4ngstraverse2"
+    400008: "L\xE4ngstraverse3"
+    400010: "L\xE4ngstraverse4"
+    400012: "L\xE4ngstraverse5"
+    400014: Palette
+    400016: //RootNode
+    400018: Rahmen links
+    400020: Rahmen rechts
+    400022: Spanplatte
+    400024: Stahlpaneele
+    400026: Tiefenauflage
+    400028: Tiefenauflage2
+    400030: Unterfahrauflage
+    400032: Unterfahrauflage.001
+    2100000: No Name
+    2100002: Material.000
+    2100004: Material.007
+    2100006: Material.001
+    2100008: Material
+    2100010: Material.002
+    2100012: Material.003
+    2100014: Material.005
+    2300000: "Kantenschutz f\xFCr Spanplatte"
+    2300002: "Kantenschutz hinten f\xFCr Spanplatte"
+    2300004: "L\xE4ngstraverse1"
+    2300006: "L\xE4ngstraverse2"
+    2300008: "L\xE4ngstraverse3"
+    2300010: "L\xE4ngstraverse4"
+    2300012: "L\xE4ngstraverse5"
+    2300014: Palette
+    2300016: Rahmen links
+    2300018: Rahmen rechts
+    2300020: Spanplatte
+    2300022: Stahlpaneele
+    2300024: Tiefenauflage
+    2300026: Tiefenauflage2
+    2300028: Unterfahrauflage
+    2300030: Unterfahrauflage.001
+    3300000: "Kantenschutz f\xFCr Spanplatte"
+    3300002: "Kantenschutz hinten f\xFCr Spanplatte"
+    3300004: "L\xE4ngstraverse1"
+    3300006: "L\xE4ngstraverse2"
+    3300008: "L\xE4ngstraverse3"
+    3300010: "L\xE4ngstraverse4"
+    3300012: "L\xE4ngstraverse5"
+    3300014: Palette
+    3300016: Rahmen links
+    3300018: Rahmen rechts
+    3300020: Spanplatte
+    3300022: Stahlpaneele
+    3300024: Tiefenauflage
+    3300026: Tiefenauflage2
+    3300028: Unterfahrauflage
+    3300030: Unterfahrauflage.001
+    4300000: "Kantenschutz f\xFCr Spanplatte"
+    4300002: Rahmen rechts
+    4300004: Spanplatte
+    4300006: Stahlpaneele
+    4300008: "L\xE4ngstraverse3"
+    4300010: "L\xE4ngstraverse2"
+    4300012: "L\xE4ngstraverse5"
+    4300014: "L\xE4ngstraverse4"
+    4300016: Rahmen links
+    4300018: "L\xE4ngstraverse1"
+    4300020: Tiefenauflage2
+    4300022: Tiefenauflage
+    4300024: Unterfahrauflage
+    4300026: Unterfahrauflage.001
+    4300028: Palette
+    4300030: "Kantenschutz hinten f\xFCr Spanplatte"
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

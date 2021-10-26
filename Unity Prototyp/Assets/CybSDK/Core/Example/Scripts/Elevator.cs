@@ -12,10 +12,7 @@ public class Elevator : MonoBehaviour
 	public float startDelay = 5f;
 	private float delay = 0;
 
-	[Tooltip("List of emitters to activate when moving")]
-	public List<CVirtHapticEmitter> emitters;
-
-	public bool isActive
+    public bool isActive
 	{
 		get
 		{
@@ -28,16 +25,6 @@ public class Elevator : MonoBehaviour
 
 			_isActive = value;
 
-			foreach (CVirtHapticEmitter emitter in emitters)
-			{
-				if (emitter.autoStart)
-					continue;
-
-				if (isActive)
-					emitter.Play();
-				else
-					emitter.Stop();
-			}
 		}
 	}
 	private bool _isActive = false;

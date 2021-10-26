@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace CybSDK
 {
-    [CustomEditor(typeof(CVirtHapticEmitter))]
+    [CustomEditor(typeof(CVirtHapticEmitter), true)]
     public class CVirtHapticEmitterEditor : Editor
     {
 	    private static Color orange = new Color(1f, 0.549f, 0f);
@@ -13,9 +13,8 @@ namespace CybSDK
             CVirtHapticEmitter targetScript = (CVirtHapticEmitter)target;
 
             Handles.color = orange;
-			Handles.DrawWireDisc(targetScript.transform.position, targetScript.transform.up, targetScript.GetRange());
+			Handles.DrawWireDisc(targetScript.transform.position, targetScript.transform.up, targetScript.Distance);
 		}
 
 	}
-
 }

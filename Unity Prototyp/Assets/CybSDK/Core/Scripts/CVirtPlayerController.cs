@@ -30,6 +30,8 @@ public class CVirtPlayerController : MonoBehaviour
 	[Range(0, 10)]
 	public float movementSpeedMultiplier = 1.2f;
 
+    public Vector3 MotionVector { get; private set; }
+
 	// Use this for initialization
 	void Start()
 	{
@@ -99,6 +101,7 @@ public class CVirtPlayerController : MonoBehaviour
 		}
 
 		Vector3 motionVector = globalOrientation * movement;
+        MotionVector = motionVector;
 		characterController.SimpleMove(motionVector);
 	}
 }

@@ -1,13 +1,13 @@
 ﻿/************************************************************************************
 
 Filename    :   CVirtHapticEmitter.cs
-Content     :   The HapticEmitter emitts an animated haptic effect to be recieved from a HapticListener.
+Content     :   The HapticEmitter emitts an animated haptic effect to be received from a HapticListener.
 Created     :   August 8, 2014
-Last Updated:	September 11, 2018
+Last Updated:	May 26, 2018
 Authors     :   Lukas Pfeifhofer
 				Stefan Radlwimmer
 
-Copyright   :   Copyright 2019 Cyberith GmbH
+Copyright   :   Copyright 2020 Cyberith GmbH
 
 Licensed under the AssetStore Free License and the AssetStore Commercial License respectively.
 
@@ -18,125 +18,179 @@ using UnityEngine;
 namespace CybSDK
 {
 
-	public class CVirtHapticEmitter : MonoBehaviour
-	{
-		[Tooltip("Reference to the Haptic Listener receiving Haptic Feedback. If not set will find one in scene")]
-		public CVirtHapticListener hapticListener;
+    public class CVirtHapticEmitter : MonoBehaviour
+    {
 
-		[Tooltip("AutoStart haptic effect when enabled.")]
-		[Rename("AutoStart Playing")]
-		public bool autoStart = false;
-		[Tooltip("Is currently playing haptic feedback.")]
-		protected bool playing = false;
+        [Tooltip("Reference to the Haptic Listener receiving Haptic Feedback. If not set will find one in scene")]
+        public CVirtHapticListener hapticListener;
 
-		[Tooltip("Restart the feedback after it ended.")]
-		public bool loop = false;
+        [Tooltip("AutoStart haptic effect when enabled.")]
+        [Rename("AutoStart Playing")]
+        [SerializeField]
+        protected bool autoStart = false;
 
-		[Tooltip("Duration in seconds for a feedback loop.")]
-		public float duration = 3.0f;
+        [Tooltip("Is currently playing haptic feedback.")]
+        protected bool playing = false;
 
-		[Tooltip("Radius in meter the haptic feedback should spread.")]
-		[Rename("Range")]
-		public float distance = 4.0f;
+        [Tooltip("Restart the feedback after it ended.")]
+        public bool loop = false;
 
-		[Tooltip("Animation Curve for feedback intensity over time [Normalized, volume/s].")]
-		[Rename("Volume over Time")]
-		public AnimationCurve forceOverTime = AnimationCurve.EaseInOut(0, 1, 1, 0);
+        [Tooltip("Duration in seconds for a feedback loop.")]
+        [SerializeField]
+        private float duration = 3.0f;
 
-		[Tooltip("Animation Curve for feedback intensity distance [Normalized, volume/m].")]
-		public AnimationCurve forceOverDistance = AnimationCurve.Linear(0, 1, 1, 0);
+        public float Duration
+        {
+            get { return duration; }
+            set { duration = value; }
+        }
 
-		private float timeStart;
+        [Tooltip("Radius in meter the haptic feedback should spread.")]
+        [Rename("Range")]
+        [SerializeField]
+        private float distance = 4.0f;
 
-		// Use this for initialization
-		void Start()
-		{
-			if (hapticListener == null)
-			{
-				hapticListener = FindObjectOfType<CVirtHapticListener>();
+        public float Distance
+        {
+            get { return distance; }
+            set { distance = value; }
+        }
 
-				if (hapticListener == null)
-				{
-					CLogger.LogWarning(string.Format("No CVirtHapticListener-Object set in CVirtHapticEmitter@'{0}'.", gameObject.name));
-					return;
-				}
-			}
+        [Tooltip("Frequency for the haptic unit.")]
+        [Range(10.0f, 80.0f)]
+        [SerializeField]
+        private float frequency = 80.0f;
 
-			if (autoStart)
-				Play();
-		}
+        public float Frequency
+        {
+            get { return frequency; }
+            set
+            {
+                if (value < 10)
+                    frequency = 10;
+                if (value > 80)
+                    frequency = 80;
+            }
+        }
 
-		public void Play()
-		{
-			timeStart = Time.time;
+        /// <summary>
+        /// Keep Haptic Emitter active. Can be used to keep emitter active ignoring the emitters distance value
+        /// </summary>
+        [HideInInspector]
+        public bool keepActive = false;
 
-			if (playing)
-				return;
+        [Tooltip("Animation Curve for feedback intensity over time [Normalized, volume/s].")]
+        [Rename("Volume over Time")]
+        public AnimationCurve forceOverTime = AnimationCurve.Linear(0, 1, 1, 1);
 
-			playing = true;
-			if (hapticListener != null)
-				hapticListener.AddEmitter(this);
-		}
+        [Tooltip("Animation Curve for feedback intensity distance [Normalized, volume/m].")]
+        public AnimationCurve forceOverDistance = AnimationCurve.Linear(0, 1, 1, 0);
 
-		public void Stop()
-		{
-			if (!playing)
-				return;
+        private float timeStart;
 
-			playing = false;
-			if (hapticListener != null)
-				hapticListener.RemoveEmitter(this);
-		}
+        // Use this for initialization
+        protected virtual void Start()
+        {
+            if (hapticListener == null)
+            {
+                hapticListener = FindObjectOfType<CVirtHapticListener>().GetComponent<CVirtHapticListener>();
 
-		public virtual float EvaluateForce(Vector3 listenerPosition)
-		{
-			if (!isActiveAndEnabled || !playing)
-				return 0f;
+                if (hapticListener == null)
+                {
+                    CLogger.LogWarning(string.Format("No CVirtHapticListener-Object set in CVirtHapticEmitter@'{0}'.", gameObject.name));
+                    return;
+                }
+            }
 
-			float timeDelta = Time.time - timeStart;
-			float timeInLoop = Mathf.Repeat(timeDelta, duration);
+            if (autoStart)
+                Play();
+        }
 
-			//Evaluate time
-			float forceTimeP = forceOverTime.Evaluate(timeInLoop / duration);
+        void Update()
+        {
+            if (!playing)
+                return;
 
-			//Evaluate distance
-			float dist = Vector3.Distance(transform.position, listenerPosition) / distance;
-			float forceDistP = forceOverDistance.Evaluate(Mathf.Clamp01(dist));
+            if (!loop)
+            {
+                float timeDelta = Time.time - timeStart;
 
-			return forceTimeP * forceDistP;
-		}
+                if (timeDelta > duration)
+                {
+                    Stop();
+                }
+            }
+        }
 
-		public float GetDuration()
-		{
-			return duration;
-		}
+        void OnEnable()
+        {
+            if (autoStart)
+                Play();
+        }
 
-		public float GetRange()
-		{
-			return distance;
-		}
+        void OnDisable()
+        {
+            Stop();
+        }
 
-		void Update()
-		{
-			if (!playing)
-				return;
+        // Use this for deinitialization
+        void OnDestroy()
+        {
+            Stop();
+        }
 
-			if (!loop)
-			{
-				float timeDelta = Time.time - timeStart;
+        /// <summary>
+        /// Start playing the Haptic Emitter by adding it to the Haptic Listener
+        /// </summary>
+        public void Play()
+        {
+            timeStart = Time.time;
 
-				if (timeDelta > GetDuration())
-				{
-					Stop();
-				}
-			}
-		}
+            if (playing)
+                return;
 
-		// Use this for deinitialization
-		void OnDestroy()
-		{
-			Stop();
-		}
-	}
+            playing = true;
+            if (hapticListener != null)
+                hapticListener.AddEmitter(this);
+        }
+
+        /// <summary>
+        /// Stop playing the Haptic Emitter by removing it from the Haptic Listener
+        /// </summary>
+        public void Stop()
+        {
+            if (!playing)
+                return;
+
+            playing = false;
+            if (hapticListener != null)
+                hapticListener.RemoveEmitter(this);
+        }
+
+        /// <summary>
+        /// Calculates the Volume (Strength) for this Emitter
+        /// The volume depends on forceOverTime and forceOverDistance Animation Curves
+        /// </summary>
+        /// <param name="listenerPosition"> Position of the listener used for forceOverDistance calculation </param>
+        /// <returns></returns>
+        public virtual float EvaluateForce(Vector3 listenerPosition)
+        {
+            if (!isActiveAndEnabled || !playing)
+                return 0f;
+
+            float timeDelta = Time.time - timeStart;
+            float timeInLoop = Mathf.Repeat(timeDelta, duration);
+
+            //Evaluate time
+            float forceTimeP = forceOverTime.Evaluate(timeInLoop / duration);
+
+            //Evaluate distance
+            float dist = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(listenerPosition.x, 0, listenerPosition.z)) / distance;
+            float forceDistP = forceOverDistance.Evaluate(Mathf.Clamp01(dist));
+
+            return forceTimeP * forceDistP;
+        }
+    }
 
 }
+
