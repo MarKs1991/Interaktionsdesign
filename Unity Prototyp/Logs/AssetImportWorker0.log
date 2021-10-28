@@ -15,11 +15,11 @@ F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50216
+60099
 Successfully changed project path to: F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp
 F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 64.65 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 61.84 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
 [Subsystems] Discovering subsystems at path C:/Program Files (x86)/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
@@ -35,147 +35,51 @@ Initialize mono
 Mono path[0] = 'C:/Program Files (x86)/2020.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files (x86)/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files (x86)/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56544
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56464
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files (x86)/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002823 seconds.
+Registered in 0.003004 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 62.31 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 60.60 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.547 seconds
+- Completed reload, in  1.545 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003166 seconds.
+Registered in 0.003023 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 64.17 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 61.25 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.309 seconds
+- Completed reload, in  1.251 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.76 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 0.70 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2765 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 128.8 MB.
-System memory in use after: 126.5 MB.
+System memory in use before: 128.9 MB.
+System memory in use after: 126.7 MB.
 
 Unloading 51 unused Assets to reduce memory usage. Loaded Objects now: 3173.
-Total: 3.964000 ms (FindLiveObjects: 0.372900 ms CreateObjectMapping: 0.106800 ms MarkObjects: 2.088600 ms  DeleteObjects: 1.394200 ms)
+Total: 4.369700 ms (FindLiveObjects: 0.337800 ms CreateObjectMapping: 0.087900 ms MarkObjects: 2.455900 ms  DeleteObjects: 1.486500 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/RegalComplete.prefab
-  artifactKey: Guid(68811be349e9c684cb0b756068c3fed2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/RegalComplete.prefab using Guid(68811be349e9c684cb0b756068c3fed2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22171468ae804bd6d71dfe88d02399c6') in 0.304447 seconds
-  Import took 0.310586 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000272 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Grid.prefab
-  artifactKey: Guid(67538840444c28d46adbcf4d78954909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Grid.prefab using Guid(67538840444c28d46adbcf4d78954909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd5c9a4ccae57fcd3d6d1383ce126d04') in 0.016710 seconds
-  Import took 0.021654 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000258 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Palette Prefab mit Text.prefab
-  artifactKey: Guid(b4709e9ad5be7964d9a43e65b70d95e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Palette Prefab mit Text.prefab using Guid(b4709e9ad5be7964d9a43e65b70d95e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba95e5dade16c406d88298f679be70ca') in 0.023182 seconds
-  Import took 0.028297 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000295 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Supermarktregal.prefab
-  artifactKey: Guid(1a0b3c956b091f847a72bd43d61ffd39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Supermarktregal.prefab using Guid(1a0b3c956b091f847a72bd43d61ffd39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ea649e3b279f2145974c79e3955f94f') in 0.012847 seconds
-  Import took 0.018402 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000336 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Regal0.1.prefab
-  artifactKey: Guid(11179da6578d41f468019bdd007eee65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Regal0.1.prefab using Guid(11179da6578d41f468019bdd007eee65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b86e88824ad9efde9a39c332d4a5944') in 0.027892 seconds
-  Import took 0.033368 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000358 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/New Prefab.prefab
-  artifactKey: Guid(973645f3967ecc542810627ebee2cb9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/New Prefab.prefab using Guid(973645f3967ecc542810627ebee2cb9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9b107bfa86c040d8896c3cf438b57e8') in 0.022448 seconds
-  Import took 0.028061 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/HU.prefab
-  artifactKey: Guid(e17a72577dc865246b7634646811be41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/HU.prefab using Guid(e17a72577dc865246b7634646811be41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9480b3f91891d352616690f03afd6910') in 0.024128 seconds
-  Import took 0.028698 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000288 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/LP.prefab
-  artifactKey: Guid(a118fb80437c64f4d9531a5b75fa3327) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/LP.prefab using Guid(a118fb80437c64f4d9531a5b75fa3327) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb03aba9f9edf4567c44a22986dd2795') in 0.021916 seconds
-  Import took 0.026855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Regal2.prefab
-  artifactKey: Guid(a5cebf73ea7e517448fb04fe0a51f9da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Regal2.prefab using Guid(a5cebf73ea7e517448fb04fe0a51f9da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ead2f876a7323383a5e93a785e6334b') in 0.024269 seconds
-  Import took 0.029259 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000289 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Test2.prefab
-  artifactKey: Guid(8a765e60feed8844883d9de112fc3597) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Test2.prefab using Guid(8a765e60feed8844883d9de112fc3597) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a09f9f5d6d11e3c6402048b9df752b40') in 0.025069 seconds
-  Import took 0.030166 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000248 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Pallete.prefab
-  artifactKey: Guid(30ad7ddfcd820a24d958f34456c9cef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Pallete.prefab using Guid(30ad7ddfcd820a24d958f34456c9cef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7e1f5a321f61adfd255a9ececd18f8e') in 0.021819 seconds
-  Import took 0.026326 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000258 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Pallete mit text.prefab
-  artifactKey: Guid(db4c67f1810fe2f4eb08e4ef690a8d9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs/Pallete mit text.prefab using Guid(db4c67f1810fe2f4eb08e4ef690a8d9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41e61b3146b4d933f46f1b4c52d7d3a3') in 0.019702 seconds
-  Import took 0.024768 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000318 seconds.
-  path: Assets/3D Assets/RegalAssets/RegalElemente/Prefabs
-  artifactKey: Guid(4bafb8aedf0fab7498e43fd9d9e3715b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/3D Assets/RegalAssets/RegalElemente/Prefabs using Guid(4bafb8aedf0fab7498e43fd9d9e3715b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef692eceb3d1199ae79ff58238c97233') in 0.007299 seconds
-  Import took 0.012110 seconds .
+  path: Assets/Scripts
+  artifactKey: Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe0dbd62ec9af9c816321418d314a904') in 0.013224 seconds
+  Import took 0.018360 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
