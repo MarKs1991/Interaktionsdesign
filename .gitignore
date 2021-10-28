@@ -1,9 +1,9 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
+Unity Prototyp/[Ll]ibrary/
+Unity Prototyp/[Tt]emp/
+Unity Prototyp/[Oo]bj/
+Unity Prototyp/[Bb]uild/
+Unity Prototyp/[Bb]uilds/
+Unity Prototyp/[Ll]ogs/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
