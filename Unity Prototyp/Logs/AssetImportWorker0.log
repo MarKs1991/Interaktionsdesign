@@ -1,204 +1,389 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.0f1 (c7b5465681fb) revision 13088070'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19042.1288; Version 2009; 64bit' Language: 'en' Physical Memory: 8120 MB
+OS: 'Windows 10 Pro; OS build 19042.1288; Version 2009; 64bit' Language: 'de' Physical Memory: 16317 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Unity.exe
+C:\Program Files (x86)\2020.3.0f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Player/Documents/GitHub/Interaktionsdesign/Unity Prototyp
+F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56933
-Successfully changed project path to: C:/Users/Player/Documents/GitHub/Interaktionsdesign/Unity Prototyp
-C:/Users/Player/Documents/GitHub/Interaktionsdesign/Unity Prototyp
+51339
+Successfully changed project path to: F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp
+F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 191.83 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 66.60 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Player/Documents/GitHub/Interaktionsdesign/Unity Prototyp/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files (x86)/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/GitHub Repos/C# Unity/Interaktionsdesign/Unity Prototyp/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
+    Renderer: AMD Radeon RX 5700 XT (ID=0x731f)
     Vendor:   
-    VRAM:     5980 MB
-    Driver:   30.0.14.7196
+    VRAM:     8151 MB
+    Driver:   27.20.22025.1006
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
+Mono path[0] = 'C:/Program Files (x86)/2020.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files (x86)/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files (x86)/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56960
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006500 seconds.
+Register platform support module: C:/Program Files (x86)/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003107 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 182.68 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 61.78 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.723 seconds
+- Completed reload, in  1.613 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.014617 seconds.
+Registered in 0.003398 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 135.65 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 64.04 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.254 seconds
+- Completed reload, in  1.271 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
-Refreshing native plugins compatible for Editor in 2.49 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.32 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2750 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 129.0 MB.
-System memory in use after: 127.0 MB.
+Unloading 2753 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 129.1 MB.
+System memory in use after: 127.2 MB.
 
-Unloading 46 unused Assets to reduce memory usage. Loaded Objects now: 3164.
-Total: 15.867100 ms (FindLiveObjects: 0.365800 ms CreateObjectMapping: 0.202700 ms MarkObjects: 9.722600 ms  DeleteObjects: 5.573200 ms)
+Unloading 48 unused Assets to reduce memory usage. Loaded Objects now: 3166.
+Total: 3.916100 ms (FindLiveObjects: 0.473300 ms CreateObjectMapping: 0.095900 ms MarkObjects: 2.108300 ms  DeleteObjects: 1.237100 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/SteamVR/Models/Materials/AlienHand_MetallicSmoothness.png
-  artifactKey: Guid(d6f0e028c1244404eb2d02959b9f8f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/Models/Materials/AlienHand_MetallicSmoothness.png using Guid(d6f0e028c1244404eb2d02959b9f8f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73b8ece899d3b11bcb13a6ca8e722fd4') in 0.359310 seconds
-  Import took 0.372430 seconds .
+  path: Assets/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '565fba1a13f97c68b9c7f204361b9afd') in 0.042049 seconds
+  Import took 0.047510 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.013304 seconds.
+Registered in 0.003813 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.45 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.88 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.016 seconds
+- Completed reload, in  1.164 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.22 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.70 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2640 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 123.3 MB.
-System memory in use after: 121.2 MB.
+Unloading 2662 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 124.0 MB.
+System memory in use after: 122.1 MB.
 
-Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 3170.
-Total: 22.939400 ms (FindLiveObjects: 0.544700 ms CreateObjectMapping: 0.185900 ms MarkObjects: 18.694000 ms  DeleteObjects: 3.512300 ms)
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 3190.
+Total: 4.677600 ms (FindLiveObjects: 0.436500 ms CreateObjectMapping: 0.086600 ms MarkObjects: 2.664700 ms  DeleteObjects: 1.487300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.304990 seconds.
-  path: Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportAreaVisible.mat
-  artifactKey: Guid(d2bbbd01c5b7a6b4bb5a1316f21fc1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportAreaVisible.mat using Guid(d2bbbd01c5b7a6b4bb5a1316f21fc1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8beae7e552f9e32795b8775ace67f456') in 0.822496 seconds
-  Import took 0.837475 seconds .
+  Time since last request: 147.089211 seconds.
+  path: Assets/CybSDK
+  artifactKey: Guid(9fc32f9aa4e455741b8935f43f78d25e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK using Guid(9fc32f9aa4e455741b8935f43f78d25e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cacff88920b345f5abb6575aa36f1d8') in 0.010805 seconds
+  Import took 0.015690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/CybSDK
+  artifactKey: Guid(9fc32f9aa4e455741b8935f43f78d25e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK using Guid(9fc32f9aa4e455741b8935f43f78d25e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cacff88920b345f5abb6575aa36f1d8') in 0.002098 seconds
+  Import took 0.006160 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.409256 seconds.
+  path: Assets/CybSDK/Core
+  artifactKey: Guid(01177c9854a276140b54498aa0cc0266) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core using Guid(01177c9854a276140b54498aa0cc0266) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba16ba53bfa0aea31461026bc9dcc645') in 0.011432 seconds
+  Import took 0.016181 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.990610 seconds.
+  path: Assets/CybSDK/Core/Scripts
+  artifactKey: Guid(a815b2df49825494097b2c00e5cb2d3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts using Guid(a815b2df49825494097b2c00e5cb2d3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98c33987b81d8c6c0ba312e3410a4f6d') in 0.007791 seconds
+  Import took 0.012506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002023 seconds.
+  path: Assets/CybSDK/Core/Scripts
+  artifactKey: Guid(a815b2df49825494097b2c00e5cb2d3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts using Guid(a815b2df49825494097b2c00e5cb2d3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98c33987b81d8c6c0ba312e3410a4f6d') in 0.001796 seconds
+  Import took 0.006326 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.781651 seconds.
+  path: Assets/CybSDK/Core/Prefabs
+  artifactKey: Guid(d8ed8877288451e409115490de454e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Prefabs using Guid(d8ed8877288451e409115490de454e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '374141c8ef47ae97be03d05f595daeee') in 0.006800 seconds
+  Import took 0.011860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000607 seconds.
+  path: Assets/CybSDK/Core/Prefabs
+  artifactKey: Guid(d8ed8877288451e409115490de454e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Prefabs using Guid(d8ed8877288451e409115490de454e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '374141c8ef47ae97be03d05f595daeee') in 0.001969 seconds
+  Import took 0.006446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.198213 seconds.
+  path: Assets/CybSDK/Core/Scripts/CVirtDeviceController.cs
+  artifactKey: Guid(9389754530b69264293a774439ba0012) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/CVirtDeviceController.cs using Guid(9389754530b69264293a774439ba0012) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c5a940491467735dd457f02ccc682cd') in 0.010811 seconds
+  Import took 0.015529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002373 seconds.
+  path: Assets/CybSDK/Core/Scripts/CVirtDeviceController.cs
+  artifactKey: Guid(9389754530b69264293a774439ba0012) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/CVirtDeviceController.cs using Guid(9389754530b69264293a774439ba0012) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c5a940491467735dd457f02ccc682cd') in 0.002491 seconds
+  Import took 0.007243 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.727749 seconds.
+  path: Assets/CybSDK/Core/Scripts/CVirtHapticEmitter.cs
+  artifactKey: Guid(7b616151e4953c84199bfd49e55ce65e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/CVirtHapticEmitter.cs using Guid(7b616151e4953c84199bfd49e55ce65e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4be2ddcd98891cc25c69b09ffee1fd8d') in 0.007392 seconds
+  Import took 0.012369 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.543524 seconds.
+  path: Assets/CybSDK/Core/Scripts/CVirtHapticListener.cs
+  artifactKey: Guid(a5e06ddc9649c274cad26f0deca2328d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/CVirtHapticListener.cs using Guid(a5e06ddc9649c274cad26f0deca2328d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5adf8b49a69a743e79080b80be3e290') in 0.006630 seconds
+  Import took 0.011527 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.450794 seconds.
+  path: Assets/CybSDK/Core/Scripts/CVirtPlayerController.cs
+  artifactKey: Guid(0d80984f447e0734aadde237a7e5155f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/CVirtPlayerController.cs using Guid(0d80984f447e0734aadde237a7e5155f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba545301ef50621a4eab40dc70a5f51c') in 0.006242 seconds
+  Import took 0.010853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.199388 seconds.
+  path: Assets/CybSDK/Core/Scripts/CVirtPlayerController.cs
+  artifactKey: Guid(0d80984f447e0734aadde237a7e5155f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/CVirtPlayerController.cs using Guid(0d80984f447e0734aadde237a7e5155f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba545301ef50621a4eab40dc70a5f51c') in 0.002048 seconds
+  Import took 0.006925 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.412945 seconds.
+  path: Assets/CybSDK/Core/Scripts/HapticScripts
+  artifactKey: Guid(88d203b67b2b7ef4ea95f60abed5aa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/HapticScripts using Guid(88d203b67b2b7ef4ea95f60abed5aa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cd0a6e7c65b17848ef31e3b8be339b8') in 0.006801 seconds
+  Import took 0.011551 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001806 seconds.
+  path: Assets/CybSDK/Core/Scripts/HapticScripts
+  artifactKey: Guid(88d203b67b2b7ef4ea95f60abed5aa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/HapticScripts using Guid(88d203b67b2b7ef4ea95f60abed5aa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cd0a6e7c65b17848ef31e3b8be339b8') in 0.001903 seconds
+  Import took 0.006274 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.354961 seconds.
+  path: Assets/CybSDK/Core/Scripts/HapticScripts/PlayerHitHapticEmitter.cs
+  artifactKey: Guid(30c7cf1277fc84a47886b3fd085accf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/HapticScripts/PlayerHitHapticEmitter.cs using Guid(30c7cf1277fc84a47886b3fd085accf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86afedd56caff6f4c2e692d9b81cd319') in 0.007254 seconds
+  Import took 0.012395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.989389 seconds.
+  path: Assets/CybSDK/Core/Scripts/HapticScripts/MovementTriggeredHapticEmitter.cs
+  artifactKey: Guid(230f2bb724965c34ba14256c5c87d400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Scripts/HapticScripts/MovementTriggeredHapticEmitter.cs using Guid(230f2bb724965c34ba14256c5c87d400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d4a8cd8f8b5038b358029ea4cdc620b') in 0.639129 seconds
+  Import took 0.644672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.889450 seconds.
+  path: Assets/CybSDK/Core/Prefabs/CVirtPlayerController.prefab
+  artifactKey: Guid(03ce2cc03077950448954f33aeb7837f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Prefabs/CVirtPlayerController.prefab using Guid(03ce2cc03077950448954f33aeb7837f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a91d68a6ad4c46ac31d71ef3deb91e7') in 0.287186 seconds
+  Import took 0.293114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 159.888972 seconds.
+  path: Assets/CybSDK/Core/Example
+  artifactKey: Guid(98c745d417d51a64d996dd940a660dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example using Guid(98c745d417d51a64d996dd940a660dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b171e8d2f755859fcb341d1293299426') in 0.007406 seconds
+  Import took 0.012371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007530 seconds.
+  path: Assets/CybSDK/Core/Example
+  artifactKey: Guid(98c745d417d51a64d996dd940a660dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example using Guid(98c745d417d51a64d996dd940a660dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b171e8d2f755859fcb341d1293299426') in 0.029663 seconds
+  Import took 0.035737 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.573565 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene
+  artifactKey: Guid(f5f6f66f9fccd3a47820819af074226c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene using Guid(f5f6f66f9fccd3a47820819af074226c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f617a64c0d5b2b4dc43b48cc65303fa') in 0.006655 seconds
+  Import took 0.011569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001318 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene
+  artifactKey: Guid(f5f6f66f9fccd3a47820819af074226c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene using Guid(f5f6f66f9fccd3a47820819af074226c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f617a64c0d5b2b4dc43b48cc65303fa') in 0.002511 seconds
+  Import took 0.007365 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.142911 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene/LightingData.asset
+  artifactKey: Guid(eba15f89fea19ff4ea86210c52ebcc59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene/LightingData.asset using Guid(eba15f89fea19ff4ea86210c52ebcc59) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Lighting data asset ‘LightingData’ is inconsistent because 4 files out of 20 are missing.  Please use Generate Lighting to rebuild the lighting data.
+
+Lighting data asset ‘LightingData’ is incompatible with the current Unity version. Please use Generate Lighting to rebuild the lighting data.  Realtime Global Illumination cannot be used until the lighting data is rebuilt.
+
+ -> (artifact id: '99a80f17750611b0f4846a6e75ffb0b8') in 0.025317 seconds
+  Import took 0.030762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene/ReflectionProbe-0.exr
+  artifactKey: Guid(5ebf5f8fdddb2ab4db479a57c98cf32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene/ReflectionProbe-0.exr using Guid(5ebf5f8fdddb2ab4db479a57c98cf32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2aefd3f5c889b009c6e85d7e9e4bf48') in 0.055715 seconds
+  Import took 0.060478 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene/LightingData.asset
+  artifactKey: Guid(eba15f89fea19ff4ea86210c52ebcc59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene/LightingData.asset using Guid(eba15f89fea19ff4ea86210c52ebcc59) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Lighting data asset ‘LightingData’ is inconsistent because 4 files out of 20 are missing.  Please use Generate Lighting to rebuild the lighting data.
+
+Lighting data asset ‘LightingData’ is incompatible with the current Unity version. Please use Generate Lighting to rebuild the lighting data.  Realtime Global Illumination cannot be used until the lighting data is rebuilt.
+
+ -> (artifact id: '99a80f17750611b0f4846a6e75ffb0b8') in 0.017297 seconds
+  Import took 0.021472 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene/ReflectionProbe-0.exr
+  artifactKey: Guid(5ebf5f8fdddb2ab4db479a57c98cf32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene/ReflectionProbe-0.exr using Guid(5ebf5f8fdddb2ab4db479a57c98cf32c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2aefd3f5c889b009c6e85d7e9e4bf48') in 0.015103 seconds
+  Import took 0.020213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.409103 seconds.
+  path: Assets/CybSDK/Core/Example/BaseScene.unity
+  artifactKey: Guid(e7d52671abbc51a46a67b6b528d9b4c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CybSDK/Core/Example/BaseScene.unity using Guid(e7d52671abbc51a46a67b6b528d9b4c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af22ccf54fd99b91baf546785a589473') in 0.010424 seconds
+  Import took 0.016030 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 98.835947 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(02a3527b6b33a924e8ec66aa805ea717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe0dbd62ec9af9c816321418d314a904') in 0.002208 seconds
+  Import took 0.007031 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.862952 seconds.
+  path: Assets/Settings
+  artifactKey: Guid(0735c275001a2c84dafdb30deced5d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Settings using Guid(0735c275001a2c84dafdb30deced5d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ca1225e92ee2e11a693ed3bf1c30361') in 0.007125 seconds
+  Import took 0.013285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.161916 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(65174887d21022e46b886abfe70273f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(65174887d21022e46b886abfe70273f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '354064f1f5a6ad9ef357a8c275bd5f94') in 0.006767 seconds
+  Import took 0.011598 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.507986 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6abc158b5f8dec437d989459ebafa957') in 0.006879 seconds
+  Import took 0.011623 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007635 seconds.
+Registered in 0.003134 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 7.86 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.80 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.322 seconds
+- Completed reload, in  1.166 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.86 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2640 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 129.0 MB.
-System memory in use after: 126.9 MB.
+Unloading 2662 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 129.5 MB.
+System memory in use after: 127.6 MB.
 
-Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 3252.
-Total: 10.135700 ms (FindLiveObjects: 1.289500 ms CreateObjectMapping: 0.209100 ms MarkObjects: 5.634400 ms  DeleteObjects: 3.000600 ms)
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 3265.
+Total: 3.941300 ms (FindLiveObjects: 0.384700 ms CreateObjectMapping: 0.073700 ms MarkObjects: 2.170400 ms  DeleteObjects: 1.310600 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 107.882652 seconds.
-  path: Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportAreaVisible 1.mat
-  artifactKey: Guid(440dac36b339a4647894f15106e9dbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportAreaVisible 1.mat using Guid(440dac36b339a4647894f15106e9dbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7184420cc0f1baa5d2b33089dbce17eb') in 0.510908 seconds
-  Import took 0.519811 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.006214 seconds.
-  path: Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportAreaVisible 1.mat
-  artifactKey: Guid(440dac36b339a4647894f15106e9dbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/InteractionSystem/Teleport/Materials URP/URPTeleportAreaVisible 1.mat using Guid(440dac36b339a4647894f15106e9dbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7184420cc0f1baa5d2b33089dbce17eb') in 0.023828 seconds
-  Import took 0.032660 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.590621 seconds.
-  path: Assets/SteamVR/SteamVR.asmdef
-  artifactKey: Guid(1fbf338ef6b952a448262a7ff7df5fe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/SteamVR.asmdef using Guid(1fbf338ef6b952a448262a7ff7df5fe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f385aade97cf464d03317d214c0170d') in 0.014137 seconds
-  Import took 0.020233 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.374866 seconds.
-  path: Assets/SteamVR/Materials
-  artifactKey: Guid(1459d94e0a5b7af4a8a3fa067ae575e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/Materials using Guid(1459d94e0a5b7af4a8a3fa067ae575e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a1f7dec94f2d15010f5c92ac44c632c') in 0.063548 seconds
-  Import took 0.070777 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.146271 seconds.
-  path: Assets/SteamVR/Materials/workshop.mat
-  artifactKey: Guid(712cd3a70a5a1da41a6594aac6a97abe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SteamVR/Materials/workshop.mat using Guid(712cd3a70a5a1da41a6594aac6a97abe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '354fb7ed60cc792d1365e7cb261958af') in 0.135026 seconds
-  Import took 0.143783 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006550 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.09 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.042 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2640 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 129.3 MB.
-System memory in use after: 127.3 MB.
-
-Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 3293.
-Total: 33.096800 ms (FindLiveObjects: 0.385300 ms CreateObjectMapping: 0.134700 ms MarkObjects: 21.861500 ms  DeleteObjects: 10.711700 ms)
-
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
