@@ -23,7 +23,7 @@ public class CVirtPlayerController : MonoBehaviour
 	private CVirtDeviceController deviceController;
 	private CharacterController characterController;
 
-	[Tooltip("Reference to a GameObject that will be rotated according to the player’s orientation in the device. If not set will search for 'ForwardDirection' attached to GameObject.")]
+	[Tooltip("Reference to a GameObject that will be rotated according to the playerï¿½s orientation in the device. If not set will search for 'ForwardDirection' attached to GameObject.")]
 	public Transform forwardDirection;
 
 	[Tooltip("Movement Speed Multiplier, to fine tune the players speed.")]
