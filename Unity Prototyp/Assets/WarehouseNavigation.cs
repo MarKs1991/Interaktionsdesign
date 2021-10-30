@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WarehouseNavigation : MonoBehaviour
@@ -9,33 +10,71 @@ public class WarehouseNavigation : MonoBehaviour
     public int[][] WaypointArray;
     public List<int> Hubs;
     public int CollumnLength;
-    public int targetPosCollumn;
-    public int targetPosRow;
+
     public List<int> targetHubs;
     public List<int> EmployeeHubs;
-    public int employeePositionCollumn;
-    public int employeePositionRow;
+
+    public Vector2Int employeePosition;
+    //public int employeePositionRow;
+
+    public Vector2Int[] targetPos;
+    //public List<int> targetPosRows;
+
     public int traveledDistance = 0;
+    public List<int> DistanceList;
+
+    int shortestRoute = 1000000;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        findClosedCollumnToTarget(targetPosCollumn, targetHubs);
-        int nearestHub = findClosedCollumnToEmployee(employeePositionCollumn);
-        traveledDistance = 0;
-        travelToHub(nearestHub);
-        changeRow();
-        travelToTarget();
-        String str = "ABCDEF";
-        int n = str.Length;
-        permute(str, 0, n - 1);
-    }
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            calculateRoutes();
+        }
     }
+
+    private void calculateRoutes()
+    {
+        int Routes = 1;
+        int shortestRoute = 1000000;
+        var vals = targetPos;
+        foreach (var v in Permutations(vals))
+        {
+            //DistanceList.Clear();
+            traveledDistance = 0;
+            for (int i = 0; i <= targetPos.Length - 1; i++)
+            {
+                findClosedCollumnToTarget(targetPos[i].x, targetHubs);
+                int nearestHub = findClosedCollumnToEmployee(employeePosition.x);
+
+                travelToHub(nearestHub);
+
+                if (traveledDistance >= shortestRoute)
+                {
+                    break;
+                }
+
+                changeRow(targetPos[i].y);
+                travelToTarget(targetPos[i].x);
+                resetLists();
+
+                if(traveledDistance >= shortestRoute)
+                {
+                    break;
+                }
+            }            
+
+            if(traveledDistance < shortestRoute)
+            {
+                shortestRoute = traveledDistance;
+                Debug.Log(string.Join(",", v) + "is the shortest Route with " + shortestRoute + "Steps");                
+            }
+            
+        }
+    }
+   
 
     private void findClosedCollumnToTarget(int target, List<int> ClosestHubs)
     {
@@ -49,89 +88,108 @@ public class WarehouseNavigation : MonoBehaviour
     }
     private int findClosedCollumnToEmployee(int employeePos)
     {
-
-        int distance1 = Mathf.Abs(targetHubs[0] - employeePositionCollumn);
-        int distance2 = Mathf.Abs(targetHubs[1] - employeePositionCollumn);
+        /*
+        foreach (int Hub in Hubs) 
+        {
+            if(employeePos == Hub)
+            {
+                break;
+            }
+        }
+        */
+        int distance1 = Mathf.Abs(targetHubs[0] - employeePosition.x);
+        int distance2 = Mathf.Abs(targetHubs[1] - employeePosition.x);
 
         int nearestHub = distance1 < distance2 ? targetHubs[0] : targetHubs[1];
-        Debug.Log(nearestHub);
+        //Debug.Log(nearestHub);
         return nearestHub;
     }
     private void travelToHub(int targetedHub)
     {
-        findClosedCollumnToTarget(employeePositionRow, EmployeeHubs);
+        findClosedCollumnToTarget(employeePosition.y, EmployeeHubs);
         if (targetHubs[0] != EmployeeHubs[0] && targetHubs[1] != EmployeeHubs[1])
         {
-            traveledDistance = traveledDistance + Mathf.Abs(targetedHub - employeePositionCollumn);
-            Debug.Log("backtohub");
-            employeePositionCollumn = targetedHub;
+            traveledDistance = traveledDistance + Mathf.Abs(targetedHub - employeePosition.x);
+            //Debug.Log("backtohub");
+            employeePosition.x = targetedHub;
         }
     }
-    private void changeRow()
+    private void changeRow(int targetPosRow)
     {
-        if (employeePositionRow != targetPosRow)
+        if (employeePosition.y != targetPosRow)
         {
-            traveledDistance = traveledDistance + Mathf.Abs(targetPosRow - employeePositionRow);
+            traveledDistance = traveledDistance + Mathf.Abs(targetPosRow - employeePosition.y);
+            employeePosition.y = targetPosRow;
         }
     }
-    private void travelToTarget()
+    private void travelToTarget(int targetPosCollumn)
     {
-        traveledDistance = traveledDistance + Mathf.Abs(targetPosCollumn - employeePositionCollumn);
+        traveledDistance = traveledDistance + Mathf.Abs(targetPosCollumn - employeePosition.x);
+        employeePosition.x = targetPosCollumn;
+    }
+    private void resetLists()
+    {
+        targetHubs.Clear();
+        EmployeeHubs.Clear();
+        //DistanceList.Add(traveledDistance);
+    }
+    private void breakOut()
+    {
+        resetLists();
+        
     }
 
 
-    
-        
-            /**
-            * permutation function
-            * @param str string to
-            calculate permutation for
-            * @param l starting index
-            * @param r end index
-            */
-            private static void permute(String str,
-                                        int l, int r)
-            {
-                if (l == r)
-            Debug.Log(0);
-            else
-                {
-                    for (int i = l; i <= r; i++)
-                    {
-                        str = swap(str, l, i);
-                        permute(str, l + 1, r);
-                        str = swap(str, l, i);
-                }
-                }
-            }
+   
 
-            /**
-            * Swap Characters at position
-            * @param a string value
-            * @param i position 1
-            * @param j position 2
-            * @return swapped string
-            */
-            public static String swap(String a,
-                                    int i, int j)
-            {
-                char temp;
-                char[] charArray = a.ToCharArray();
-                temp = charArray[i];
-                charArray[i] = charArray[j];
-                charArray[j] = temp;
-                string s = new string(charArray);
-                return s;
-            }
 
-            // Driver Code
-            public static void Main()
+public static IEnumerable<T[]> Permutations<T>(T[] values, int fromInd = 0)
+    {
+        if (fromInd + 1 == values.Length)
+            yield return values;
+        else
+        {
+            foreach (var v in Permutations(values, fromInd + 1))
+                yield return v;
+
+            for (var i = fromInd + 1; i < values.Length; i++)
             {
-                
+                SwapValues(values, fromInd, i);
+                foreach (var v in Permutations(values, fromInd + 1))
+                    yield return v;
+                SwapValues(values, fromInd, i);
             }
         }
+    }
 
-        // This code is contributed by mits
+    private static void SwapValues<T>(T[] values, int pos1, int pos2)
+    {
+        if (pos1 != pos2)
+        {
+            T tmp = values[pos1];
+            values[pos1] = values[pos2];
+            values[pos2] = tmp;
+        }
+    }
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 
