@@ -72,10 +72,11 @@
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\CybSDK\Core\Helpers\CVirtComment.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticEmitter.cs" />
+    <Compile Include="Assets\WarehouseNavigation.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\WalkAgainstColliderHapticEmitter.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtPlayerController.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticListener.cs" />
-    <Compile Include="Assets\WarehouseNavigation.cs" />
+    <Compile Include="Assets\RouteVisualizer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
