@@ -6,25 +6,31 @@ using UnityEngine;
 
 public class WarehouseNavigation : MonoBehaviour
 {
-    public List<int> Order;
-    public int[][] WaypointArray;
+
+
+    public RouteVisualizer routeVisualizer;
     public List<int> Hubs;
-    public int CollumnLength;
+    public int RowLength;
 
     public List<int> targetHubs;
     public List<int> EmployeeHubs;
+    public List<Vector2Int> subWaypointsList;
 
     public Vector2Int employeePosition;
-    //public int employeePositionRow;
+    public Vector2Int initialEmployeePos;
 
     public Vector2Int[] targetPos;
-    //public List<int> targetPosRows;
 
     public int traveledDistance = 0;
-    public List<int> DistanceList;
+    
 
     int shortestRoute = 1000000;
+    public Vector2Int[] shortestCombination;
 
+    private void Start()
+    {
+        initialEmployeePos = employeePosition;
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,66 +43,71 @@ public class WarehouseNavigation : MonoBehaviour
 
     private void calculateRoutes()
     {
-        int Routes = 1;
+        
+
         int shortestRoute = 1000000;
         var vals = targetPos;
         foreach (var v in Permutations(vals))
         {
-            //DistanceList.Clear();
-            traveledDistance = 0;
+            resetNavigation();
             for (int i = 0; i <= targetPos.Length - 1; i++)
             {
-                findClosedCollumnToTarget(targetPos[i].x, targetHubs);
-                int nearestHub = findClosedCollumnToEmployee(employeePosition.x);
-
-                travelToHub(nearestHub);
-
-                if (traveledDistance >= shortestRoute)
-                {
-                    break;
-                }
-
-                changeRow(targetPos[i].y);
-                travelToTarget(targetPos[i].x);
                 resetLists();
-
-                if(traveledDistance >= shortestRoute)
+                if (employeePosition != targetPos[i])
                 {
-                    break;
+                    if (employeePosition.y != targetPos[i].y)
+                    {
+                        findClosedHubToTarget(targetPos[i].x, targetHubs);
+                        int nearestHub = findClosedHubToEmployee(employeePosition.x);
+
+                        travelToHub(nearestHub);
+
+                        if (traveledDistance >= shortestRoute) break;
+
+                        changeCollumn(targetPos[i].y);
+                    }
+
+                    if (traveledDistance >= shortestRoute) break;
+
+                    travelToTarget(targetPos[i].x);
                 }
             }            
 
             if(traveledDistance < shortestRoute)
             {
                 shortestRoute = traveledDistance;
-                Debug.Log(string.Join(",", v) + "is the shortest Route with " + shortestRoute + "Steps");                
+                shortestCombination = v;
+                Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
+                routeVisualizer.renderLines(shortestCombination, subWaypointsList);
             }
             
         }
+        Vector2Int[] shortestCombination1 = shortestCombination;
+
+       //Debug.Log(string.Join(",", shortestCombination1) + "is the shortest Route with " + shortestRoute + "Steps");
+        
     }
    
-
-    private void findClosedCollumnToTarget(int target, List<int> ClosestHubs)
+    private void findClosedHubToTarget(int target, List<int> ClosestHubs)
     {
-        foreach (int Hub in Hubs)
+        foreach (var Hub in Hubs)
         {
-            if (Mathf.Abs(target - Hub) <= CollumnLength)
+            /*
+            if(Mathf.Abs(target - Hub) == 0)
+            {
+                throw new Exception("Kommisionierpositionen dürfen nich auf:"+ string.Join(",", Hub.ToString()) + " liegen dies sind Hubs");
+            }
+            */
+            if (Mathf.Abs(target - Hub) <= RowLength)
             {
                 ClosestHubs.Add(Hub);
             }
         }
     }
-    private int findClosedCollumnToEmployee(int employeePos)
+
+    private int findClosedHubToEmployee(int employeePos)
     {
-        /*
-        foreach (int Hub in Hubs) 
-        {
-            if(employeePos == Hub)
-            {
-                break;
-            }
-        }
-        */
+        
         int distance1 = Mathf.Abs(targetHubs[0] - employeePosition.x);
         int distance2 = Mathf.Abs(targetHubs[1] - employeePosition.x);
 
@@ -104,46 +115,56 @@ public class WarehouseNavigation : MonoBehaviour
         //Debug.Log(nearestHub);
         return nearestHub;
     }
+
     private void travelToHub(int targetedHub)
     {
-        findClosedCollumnToTarget(employeePosition.y, EmployeeHubs);
+        findClosedHubToTarget(employeePosition.y, EmployeeHubs);
         if (targetHubs[0] != EmployeeHubs[0] && targetHubs[1] != EmployeeHubs[1])
         {
             traveledDistance = traveledDistance + Mathf.Abs(targetedHub - employeePosition.x);
             //Debug.Log("backtohub");
             employeePosition.x = targetedHub;
+            saveSubWaypoints(targetedHub, employeePosition.y);
         }
     }
-    private void changeRow(int targetPosRow)
+
+    private void changeCollumn(int targetPosCollumn)
     {
-        if (employeePosition.y != targetPosRow)
+        if (employeePosition.y != targetPosCollumn)
         {
-            traveledDistance = traveledDistance + Mathf.Abs(targetPosRow - employeePosition.y);
-            employeePosition.y = targetPosRow;
+            traveledDistance = traveledDistance + (Mathf.Abs(targetPosCollumn - employeePosition.y)*2);
+            employeePosition.y = targetPosCollumn;
+            saveSubWaypoints(employeePosition.x, targetPosCollumn);
         }
     }
-    private void travelToTarget(int targetPosCollumn)
+
+    private void travelToTarget(int targetPosRow)
     {
-        traveledDistance = traveledDistance + Mathf.Abs(targetPosCollumn - employeePosition.x);
-        employeePosition.x = targetPosCollumn;
+        traveledDistance = traveledDistance + Mathf.Abs(targetPosRow - employeePosition.x);
+        employeePosition.x = targetPosRow;
+        saveSubWaypoints(targetPosRow, employeePosition.y);
     }
+
     private void resetLists()
     {
         targetHubs.Clear();
-        EmployeeHubs.Clear();
+        EmployeeHubs.Clear();        
         //DistanceList.Add(traveledDistance);
     }
-    private void breakOut()
+
+    private void resetNavigation()
     {
-        resetLists();
-        
+        traveledDistance = 0;
+        employeePosition = initialEmployeePos;
+        subWaypointsList.Clear();
+    }
+    private void saveSubWaypoints(int x, int y)
+    {
+        subWaypointsList.Add(new Vector2Int(x, y));
     }
 
 
-   
-
-
-public static IEnumerable<T[]> Permutations<T>(T[] values, int fromInd = 0)
+    public static IEnumerable<T[]> Permutations<T>(T[] values, int fromInd = 0)
     {
         if (fromInd + 1 == values.Length)
             yield return values;

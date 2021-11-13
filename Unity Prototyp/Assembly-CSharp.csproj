@@ -35,6 +35,43 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
+<<<<<<< HEAD
+=======
+  <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UnityProjectGenerator>Package</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>2.0.7</UnityProjectGeneratorVersion>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2020.3.0f1</UnityVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\FallImpactHapticEmitter.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\CLogger.cs" />
+    <Compile Include="Assets\Scripts\Grabable.cs" />
+    <Compile Include="Assets\CybSDK\Core\Helpers\MonoBehaviourExtensions.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\MovementTriggeredHapticEmitter.cs" />
+    <Compile Include="Assets\CybSDK\Core\Example\Scripts\BulletSpawn.cs" />
+    <Compile Include="Assets\CybSDK\Core\Example\Scripts\Bullet.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\PlayerHitHapticEmitter.cs" />
+    <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\CVirtDeviceController.cs" />
+    <Compile Include="Assets\CybSDK\Core\Helpers\IVirtDeviceUnityExtensions.cs" />
+    <Compile Include="Assets\CybSDK\Core\Example\Scripts\Elevator.cs" />
+    <Compile Include="Assets\CybSDK\Core\Helpers\RenameAttribute.cs" />
+    <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\CybSDK\Core\Helpers\CVirtComment.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticEmitter.cs" />
+    <Compile Include="Assets\WarehouseNavigation.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\WalkAgainstColliderHapticEmitter.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\CVirtPlayerController.cs" />
+    <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticListener.cs" />
+    <Compile Include="Assets\RouteVisualizer.cs" />
+  </ItemGroup>
+>>>>>>> fa072f35d1dfe6c3d0f68c599d3fd73de8768fb1
   <ItemGroup>
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
