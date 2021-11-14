@@ -14,7 +14,8 @@ public class WarehouseNavigation : MonoBehaviour
 
     public List<int> targetHubs;
     public List<int> EmployeeHubs;
-    public List<Vector2Int> subWaypointsList;
+   public List<Vector2Int> subWaypointsList = new List<Vector2Int>();
+    List<Vector2Int> shortestSubWaypointsList = new List<Vector2Int>();
 
     public Vector2Int employeePosition;
     public Vector2Int initialEmployeePos;
@@ -25,7 +26,7 @@ public class WarehouseNavigation : MonoBehaviour
     
 
     int shortestRoute = 1000000;
-    public Vector2Int[] shortestCombination;
+    //public Vector2Int[] shortestCombination;
 
     private void Start()
     {
@@ -43,13 +44,16 @@ public class WarehouseNavigation : MonoBehaviour
 
     private void calculateRoutes()
     {
+        //Vector2Int[] shortestCombination = new[] { new Vector2Int(0, 0), new Vector2Int(1, 1) };
+        List<Vector2Int> shortestCombination = new List<Vector2Int>();
         
 
-        int shortestRoute = 1000000;
+    int shortestRoute = 1000000;
         var vals = targetPos;
-        foreach (var v in Permutations(vals))
+        foreach (Vector2Int[] v in Permutations(vals))
         {
             resetNavigation();
+            saveSubWaypoints(employeePosition.x,employeePosition.y);
             for (int i = 0; i <= targetPos.Length - 1; i++)
             {
                 resetLists();
@@ -75,16 +79,26 @@ public class WarehouseNavigation : MonoBehaviour
 
             if(traveledDistance < shortestRoute)
             {
+
                 shortestRoute = traveledDistance;
-                shortestCombination = v;
-                Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
-                routeVisualizer.renderLines(shortestCombination, subWaypointsList);
+              
+                shortestCombination.Clear();
+                subWaypointsList = shortestSubWaypointsList; 
+
+
+
+                shortestCombination = v.ToList<Vector2Int>();
+                //Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
+                routeVisualizer.SubWaypoints = shortestSubWaypointsList;
+                routeVisualizer.waypoints = shortestCombination;
+                routeVisualizer.renderLines();
             }
             
         }
-        Vector2Int[] shortestCombination1 = shortestCombination;
+        //Vector2Int[] shortestCombination1 = shortestCombination;
+        Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
 
-       //Debug.Log(string.Join(",", shortestCombination1) + "is the shortest Route with " + shortestRoute + "Steps");
+
         
     }
    
@@ -119,13 +133,13 @@ public class WarehouseNavigation : MonoBehaviour
     private void travelToHub(int targetedHub)
     {
         findClosedHubToTarget(employeePosition.y, EmployeeHubs);
-        if (targetHubs[0] != EmployeeHubs[0] && targetHubs[1] != EmployeeHubs[1])
-        {
+        //if (targetHubs[0] != EmployeeHubs[0] && targetHubs[1] != EmployeeHubs[1])
+        //{
             traveledDistance = traveledDistance + Mathf.Abs(targetedHub - employeePosition.x);
             //Debug.Log("backtohub");
             employeePosition.x = targetedHub;
-            saveSubWaypoints(targetedHub, employeePosition.y);
-        }
+            saveSubWaypoints(employeePosition.x, employeePosition.y);
+        //}
     }
 
     private void changeCollumn(int targetPosCollumn)
@@ -134,7 +148,7 @@ public class WarehouseNavigation : MonoBehaviour
         {
             traveledDistance = traveledDistance + (Mathf.Abs(targetPosCollumn - employeePosition.y)*2);
             employeePosition.y = targetPosCollumn;
-            saveSubWaypoints(employeePosition.x, targetPosCollumn);
+            saveSubWaypoints(employeePosition.x, employeePosition.y);
         }
     }
 
@@ -142,7 +156,7 @@ public class WarehouseNavigation : MonoBehaviour
     {
         traveledDistance = traveledDistance + Mathf.Abs(targetPosRow - employeePosition.x);
         employeePosition.x = targetPosRow;
-        saveSubWaypoints(targetPosRow, employeePosition.y);
+        saveSubWaypoints(employeePosition.x, employeePosition.y);
     }
 
     private void resetLists()
