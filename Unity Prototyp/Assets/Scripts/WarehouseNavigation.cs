@@ -14,8 +14,10 @@ public class WarehouseNavigation : MonoBehaviour
 
     public List<int> targetHubs;
     public List<int> EmployeeHubs;
-   public List<Vector2Int> subWaypointsList = new List<Vector2Int>();
+    public List<Vector2Int> subWaypointsList = new List<Vector2Int>();
     List<Vector2Int> shortestSubWaypointsList = new List<Vector2Int>();
+    public List<bool> isBin = new List<bool>();
+    public List<int> Breakpoints = new List<int>();
 
     public Vector2Int employeePosition;
     public Vector2Int initialEmployeePos;
@@ -31,6 +33,7 @@ public class WarehouseNavigation : MonoBehaviour
     private void Start()
     {
         initialEmployeePos = employeePosition;
+       
     }
 
     // Update is called once per frame
@@ -53,7 +56,9 @@ public class WarehouseNavigation : MonoBehaviour
         foreach (Vector2Int[] v in Permutations(vals))
         {
             resetNavigation();
-            saveSubWaypoints(employeePosition.x,employeePosition.y);
+            
+            saveSubWaypoints(employeePosition.x,employeePosition.y, false);
+            Breakpoints.Add(subWaypointsList.Count-1);
             for (int i = 0; i <= targetPos.Length - 1; i++)
             {
                 resetLists();
@@ -74,6 +79,8 @@ public class WarehouseNavigation : MonoBehaviour
                     if (traveledDistance >= shortestRoute) break;
 
                     travelToTarget(targetPos[i].x);
+                    travelToBin();
+                    backInLine();
                 }
             }            
 
@@ -91,6 +98,8 @@ public class WarehouseNavigation : MonoBehaviour
                 //Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
                 routeVisualizer.SubWaypoints = shortestSubWaypointsList;
                 routeVisualizer.waypoints = shortestCombination;
+                
+                routeVisualizer.isBin = isBin;
                 routeVisualizer.renderLines();
             }
             
@@ -138,7 +147,7 @@ public class WarehouseNavigation : MonoBehaviour
             traveledDistance = traveledDistance + Mathf.Abs(targetedHub - employeePosition.x);
             //Debug.Log("backtohub");
             employeePosition.x = targetedHub;
-            saveSubWaypoints(employeePosition.x, employeePosition.y);
+            saveSubWaypoints(employeePosition.x, employeePosition.y, false);
         //}
     }
 
@@ -148,7 +157,7 @@ public class WarehouseNavigation : MonoBehaviour
         {
             traveledDistance = traveledDistance + (Mathf.Abs(targetPosCollumn - employeePosition.y)*2);
             employeePosition.y = targetPosCollumn;
-            saveSubWaypoints(employeePosition.x, employeePosition.y);
+            saveSubWaypoints(employeePosition.x, employeePosition.y, false);
         }
     }
 
@@ -156,7 +165,16 @@ public class WarehouseNavigation : MonoBehaviour
     {
         traveledDistance = traveledDistance + Mathf.Abs(targetPosRow - employeePosition.x);
         employeePosition.x = targetPosRow;
-        saveSubWaypoints(employeePosition.x, employeePosition.y);
+        saveSubWaypoints(employeePosition.x, employeePosition.y, false);
+    }
+    private void travelToBin()
+    {
+        saveSubWaypoints(employeePosition.x, employeePosition.y, true);
+        Breakpoints.Add(subWaypointsList.Count-1);
+    }
+    private void backInLine()
+    {
+        saveSubWaypoints(employeePosition.x, employeePosition.y, false);
     }
 
     private void resetLists()
@@ -171,10 +189,13 @@ public class WarehouseNavigation : MonoBehaviour
         traveledDistance = 0;
         employeePosition = initialEmployeePos;
         subWaypointsList.Clear();
+        isBin.Clear();
+        Breakpoints.Clear();
     }
-    private void saveSubWaypoints(int x, int y)
+    private void saveSubWaypoints(int x, int y, bool _isBin)
     {
         subWaypointsList.Add(new Vector2Int(x, y));
+        isBin.Add(_isBin);
     }
 
 
