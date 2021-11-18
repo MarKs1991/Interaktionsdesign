@@ -22,10 +22,8 @@ public class WarehouseNavigation : MonoBehaviour
     public Vector2Int employeePosition;
     public Vector2Int initialEmployeePos;
 
-    public Vector2Int[] targetPos;
-
     public int traveledDistance = 0;
-    
+    public Vector2Int[] _POS;
 
     int shortestRoute = 1000000;
     //public Vector2Int[] shortestCombination;
@@ -37,21 +35,18 @@ public class WarehouseNavigation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            calculateRoutes();
-        }
-    }
+   
 
-    private void calculateRoutes()
+    public void calculateRoutes(Vector2Int[] targetPos)
     {
         //Vector2Int[] shortestCombination = new[] { new Vector2Int(0, 0), new Vector2Int(1, 1) };
         List<Vector2Int> shortestCombination = new List<Vector2Int>();
         List<int> _BreakPoints = new List<int>();
+        
+        _POS = targetPos;
 
-    int shortestRoute = 1000000;
+
+        int shortestRoute = 1000000;
         var vals = targetPos;
         foreach (Vector2Int[] v in Permutations(vals))
         {
