@@ -15,9 +15,9 @@ public class WarehouseNavigation : MonoBehaviour
     public List<int> targetHubs;
     public List<int> EmployeeHubs;
     public List<Vector2Int> subWaypointsList = new List<Vector2Int>();
-    List<Vector2Int> shortestSubWaypointsList = new List<Vector2Int>();
+    //List<Vector2Int> shortestSubWaypointsList = new List<Vector2Int>();
     public List<bool> isBin = new List<bool>();
-    public List<int> Breakpoints = new List<int>();
+    private List<int> Breakpoints = new List<int>();
 
     public Vector2Int employeePosition;
     public Vector2Int initialEmployeePos;
@@ -49,13 +49,13 @@ public class WarehouseNavigation : MonoBehaviour
     {
         //Vector2Int[] shortestCombination = new[] { new Vector2Int(0, 0), new Vector2Int(1, 1) };
         List<Vector2Int> shortestCombination = new List<Vector2Int>();
-        
+        List<int> _BreakPoints = new List<int>();
 
     int shortestRoute = 1000000;
         var vals = targetPos;
         foreach (Vector2Int[] v in Permutations(vals))
         {
-            resetNavigation();
+            
             
             saveSubWaypoints(employeePosition.x,employeePosition.y, false);
             Breakpoints.Add(subWaypointsList.Count-1);
@@ -90,27 +90,33 @@ public class WarehouseNavigation : MonoBehaviour
                 shortestRoute = traveledDistance;
               
                 shortestCombination.Clear();
-                subWaypointsList = shortestSubWaypointsList; 
+                //subWaypointsList = shortestSubWaypointsList; 
 
+                //Debug.Log(string.Join(",", Breakpoints));
 
+                //_BreakPoints = Breakpoints;
 
                 shortestCombination = v.ToList<Vector2Int>();
                 //Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
-                routeVisualizer.SubWaypoints = shortestSubWaypointsList;
+                routeVisualizer.SubWaypoints = new List<Vector2Int>(subWaypointsList);
                 routeVisualizer.waypoints = shortestCombination;
-                
-                routeVisualizer.isBin = isBin;
-                routeVisualizer.renderLines();
+
+                routeVisualizer.isBin = new List<bool>(isBin);
+
+                routeVisualizer.Breakpoints = new List<int>(Breakpoints);
+
+                routeVisualizer.RenderRoute(0,1);
+                Debug.Log(string.Join(",", Breakpoints));
             }
-            
+            //Debug.Log(string.Join(",", _BreakPoints));
         }
         //Vector2Int[] shortestCombination1 = shortestCombination;
         Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
 
 
-        
+        resetNavigation();
     }
-   
+
     private void findClosedHubToTarget(int target, List<int> ClosestHubs)
     {
         foreach (var Hub in Hubs)
@@ -227,23 +233,6 @@ public class WarehouseNavigation : MonoBehaviour
             values[pos2] = tmp;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
