@@ -27,8 +27,13 @@ public class BinRef : MonoBehaviour
         int offsetWaypointIndex = index + offset;
 
         Waypoint = WaypointList.transform.GetChild(offsetWaypointIndex).gameObject;
+        if (gameObject.transform.parent.GetSiblingIndex() % 2 == 0)
+            Waypoint.GetComponent<WaypointRef>().BinLeft = this.gameObject;
+        if (gameObject.transform.parent.GetSiblingIndex() % 2 != 0)
+        Waypoint.GetComponent<WaypointRef>().BinLeft = this.gameObject;
 
         WaypointIndex = new Vector2Int(Waypoint.transform.GetSiblingIndex(), WaypointList.transform.GetSiblingIndex());
+        
 
     }
     //WHY HAVE I TRIED THIS SHIT

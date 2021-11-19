@@ -42,9 +42,9 @@ public class BinWaypointTranslater : MonoBehaviour
           
         }
         Vector2Int[] SearchedWaypointsArray = SearchedWaypoints.ToArray();
-        Debug.Log(string.Join("RAWBINLIST: "+",", SearchedWaypoints));
+        //Debug.Log(string.Join("RAWBINLIST: "+",", SearchedWaypoints));
 
-        warehouseNavigation.calculateRoutes(SearchedWaypointsArray);
+        warehouseNavigation.calculateRoutes(SearchedWaypointsArray, OrderBins);
     }
     private void clearList()
     {
