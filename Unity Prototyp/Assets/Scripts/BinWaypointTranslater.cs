@@ -38,6 +38,9 @@ public class BinWaypointTranslater : MonoBehaviour
 
             GameObject Bin = Rows[CollumnIndex].transform.GetChild(RowIndex).gameObject;
             Vector2Int WaypointIndex = Bin.GetComponent<BinRef>().WaypointIndex;
+            Bin.GetComponent<BinRef>().inOrderList = true;
+            Bin.GetComponent<BinRef>().notPicked = true;
+            Bin.GetComponent<BinRef>().notTracked = true;
             SearchedWaypoints.Add(WaypointIndex);
           
         }

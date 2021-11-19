@@ -10,7 +10,8 @@ public class RouteVisualizer : MonoBehaviour
     public GameObject[] WaypointCollumns;
     public GameObject Arrow;
     public GameObject ArrowList;
- 
+    private bool wasPicked;
+
     //private Vector2Int [] waypoints;
     public LineRenderer RouteLine;
 
@@ -19,6 +20,8 @@ public class RouteVisualizer : MonoBehaviour
     public List<bool> isBin { get; set; }
     public List<int> Breakpoints { get; set; }
     public int PathIndex { get; set; }
+
+    public Vector3 LastWaypoint;
 
     private List<int> breaks;
     public void RenderRoute(int startIndex, int endIndex)
@@ -36,15 +39,67 @@ public class RouteVisualizer : MonoBehaviour
 
         //List<Vector3> BinWaypoint1 = new List<Vector3>(waypoints, waypoints.y,);
         Vector3 NextWaypoint = new Vector3();
+
+
+
         RouteLine.positionCount = (endIndex - startIndex) + 1;
+
+
         for (int i = startIndex; i <= endIndex; i++)
         {
+            if (WaypointCollumns[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).GetComponent<WaypointRef>() != null)
+            {
+                WaypointRef waypointRef = WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.GetComponent<WaypointRef>();
+
+                //RouteLine.SetPosition(i - startIndex, WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.GetComponent<WaypointRef>().BinLeft.transform.position);
+
+                if (waypointRef.BinLeft.GetComponent<BinRef>().wasPicked)
+                {
+                    RouteLine.SetPosition(i - startIndex, waypointRef.BinLeft.transform.position);
+                    //LastWaypoint = waypointRef.BinLeft.transform.position;
+                    waypointRef.BinLeft.GetComponent<BinRef>().notPicked = false;
+                    waypointRef.BinLeft.GetComponent<BinRef>().wasPicked = true;
+
+                }
+
+                else if (waypointRef.BinRight.GetComponent<BinRef>().wasPicked)
+                {
+                    RouteLine.SetPosition(i - startIndex, waypointRef.BinRight.transform.position);
+                    //LastWaypoint = waypointRef.BinRight.transform.position;
+                    waypointRef.BinRight.GetComponent<BinRef>().notPicked = false;
+                    waypointRef.BinLeft.GetComponent<BinRef>().wasPicked = true;
+                }
+
+                //Debug.Log(BinRows[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).GetComponent<WaypointRef>().BinLeft.name.ToString());
+            }
+
+
 
             if (isBin[i])
             {
                 if (WaypointCollumns[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).GetComponent<WaypointRef>() != null)
                 {
-                    RouteLine.SetPosition(i - startIndex, WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.GetComponent<WaypointRef>().BinLeft.transform.position);
+                    WaypointRef waypointRef = WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.GetComponent<WaypointRef>();
+
+                    //RouteLine.SetPosition(i - startIndex, WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.GetComponent<WaypointRef>().BinLeft.transform.position);
+
+                    if (waypointRef.BinLeft.GetComponent<BinRef>().inOrderList && waypointRef.BinLeft.GetComponent<BinRef>().notPicked || waypointRef.BinLeft.GetComponent<BinRef>().wasPicked)
+                    {
+                        RouteLine.SetPosition(i - startIndex, waypointRef.BinLeft.transform.position);
+                        //LastWaypoint = waypointRef.BinLeft.transform.position;
+                        waypointRef.BinLeft.GetComponent<BinRef>().notPicked = false;
+                        waypointRef.BinLeft.GetComponent<BinRef>().wasPicked = true;
+
+                    }
+
+                    else if (waypointRef.BinRight.GetComponent<BinRef>().inOrderList && waypointRef.BinRight.GetComponent<BinRef>().notPicked || waypointRef.BinRight.GetComponent<BinRef>().wasPicked)
+                    {
+                        RouteLine.SetPosition(i - startIndex, waypointRef.BinRight.transform.position);
+                        //LastWaypoint = waypointRef.BinRight.transform.position;
+                        waypointRef.BinRight.GetComponent<BinRef>().notPicked = false;
+                        waypointRef.BinLeft.GetComponent<BinRef>().wasPicked = true;
+                    }
+
                     //Debug.Log(BinRows[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).GetComponent<WaypointRef>().BinLeft.name.ToString());
                 }
             }
@@ -60,10 +115,19 @@ public class RouteVisualizer : MonoBehaviour
                 {
                     //NextWaypoint = BinRows[SubWaypoints[i + 1].y].transform.GetChild(SubWaypoints[i + 1].x).GetComponent<BinRef>().BinLeft.transform.position;
                     //Debug.Log(SubWaypoints[i]);
-                    if(SubWaypoints[i + 1].y % 2 == 0)
-                        NextWaypoint = WaypointCollumns[SubWaypoints[i + 1].y].gameObject.transform.GetChild(SubWaypoints[i + 1].x).gameObject.GetComponent<WaypointRef>().BinRight.transform.position;
-                    else 
-                        NextWaypoint = WaypointCollumns[SubWaypoints[i + 1].y].gameObject.transform.GetChild(SubWaypoints[i + 1].x).gameObject.GetComponent<WaypointRef>().BinLeft.transform.position;
+                    WaypointRef waypointRef = WaypointCollumns[SubWaypoints[i + 1].y].gameObject.transform.GetChild(SubWaypoints[i + 1].x).gameObject.GetComponent<WaypointRef>();
+
+                    if (waypointRef.BinLeft.GetComponent<BinRef>().inOrderList && waypointRef.BinLeft.GetComponent<BinRef>().notTracked)
+                    {
+                        NextWaypoint = waypointRef.BinLeft.transform.position;
+                        waypointRef.BinLeft.GetComponent<BinRef>().notTracked = false;
+                    }
+                    else if (waypointRef.BinRight.GetComponent<BinRef>().inOrderList)
+                    {
+                        NextWaypoint = waypointRef.BinRight.transform.position;
+                        waypointRef.BinRight.GetComponent<BinRef>().notTracked = false;
+                    }
+
 
                 }
 
@@ -79,6 +143,9 @@ public class RouteVisualizer : MonoBehaviour
         }
         Debug.Log(string.Join(",", Breakpoints));
     }
+
+      
+    
 
     private void destroyOldArrows()
     {
