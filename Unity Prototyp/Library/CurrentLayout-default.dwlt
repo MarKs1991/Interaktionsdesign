@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 879, y: 342}
   m_MaxSize: {x: 16004, y: 8042}
   vertical: 0
-  controlID: 127
+  controlID: 17
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 342}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 81
+  controlID: 26
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -407,10 +407,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 239}
-    m_SelectedIDs: b4d91200
-    m_LastClickedID: 1235380
-    m_ExpandedIDs: 0000000056e1000058e100005ae100005ce100005ee1000060e1000062e1000064e10000
+    scrollPos: {x: 0, y: 285}
+    m_SelectedIDs: d4810100
+    m_LastClickedID: 98772
+    m_ExpandedIDs: 00000000bae10000bce10000bee10000c0e10000c2e10000c4e10000c6e10000c8e10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -438,7 +438,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000056e1000058e100005ae100005ce100005ee1000060e1000062e1000064e10000
+    m_ExpandedIDs: 00000000bae10000bce10000bee10000c0e10000c2e10000c4e10000c6e10000c8e10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -526,7 +526,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 641
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0
@@ -558,21 +558,21 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 32}
-      m_SelectedIDs: 227a0000
-      m_LastClickedID: 31266
-      m_ExpandedIDs: 6afaffff50fbffff325700003c6400003a700000227a0000dc8b0000ac8c00004c9a0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: a4870000
+      m_LastClickedID: 34724
+      m_ExpandedIDs: 6afaffff50fbffff46640000347a0000dc7b0000068c0000d68c0000849a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Waypoint Visualizer
-        m_OriginalName: Waypoint Visualizer
+        m_Name: Wayfinder
+        m_OriginalName: Wayfinder
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 37678
+        m_UserData: 34724
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -621,9 +621,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 125.76056, y: 79.72559, z: 65.42279}
+    m_Target: {x: 114.82797, y: 12.32882, z: 110.44327}
     speed: 2
-    m_Value: {x: 125.76056, y: 79.72559, z: 65.42279}
+    m_Value: {x: 114.82797, y: 12.32882, z: 110.44327}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -670,20 +670,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1596759, y: 0.7410367, z: -0.1896113, w: 0.6240366}
+    m_Target: {x: 0.0883302, y: 0.9054533, z: -0.34391913, w: 0.23254831}
     speed: 2
-    m_Value: {x: 0.15967542, y: 0.7410345, z: -0.18961073, w: 0.62403476}
+    m_Value: {x: 0.0883299, y: 0.90545017, z: -0.34391794, w: 0.2325475}
   m_Size:
-    m_Target: 113.79356
+    m_Target: 31.070929
     speed: 2
-    m_Value: 113.79356
+    m_Value: 31.070929
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.1204399
-    m_SpeedNormalized: 0.55999994
+    m_Speed: 1.1804098
+    m_SpeedNormalized: 0.5899999
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1

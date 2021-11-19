@@ -78,6 +78,10 @@ public class WarehouseNavigation : MonoBehaviour
                     travelToBin(OrderBins[i]);
                     backInLine();
                 }
+                else
+                {
+                    travelToBin(OrderBins[i]);
+                }
             }            
 
             if(traveledDistance < shortestRoute)
