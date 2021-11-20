@@ -21,22 +21,15 @@ public class BinWaypointTranslater : MonoBehaviour
 
     private void TranslateBinToWaypoint()
     {
-        /*
-        foreach(var Bin in OrderBins)
-        {
-            WaypointList = WaypointCollections[Bin.x]
-            foreach (var WaypointList in WaypointCollections)
-            {
-                if (GetComponent<BinRef>().Null)
-            }
-        }
-        */
+       
         foreach (var itemBin in OrderBins)
         {
             int CollumnIndex = itemBin.x - 1;
             int RowIndex = itemBin.y - 1;
 
             GameObject Bin = Rows[CollumnIndex].transform.GetChild(RowIndex).gameObject;
+
+
             Vector2Int WaypointIndex = Bin.GetComponent<BinRef>().WaypointIndex;
             Bin.GetComponent<BinRef>().inOrderList = true;
             Bin.GetComponent<BinRef>().notPicked = true;
@@ -45,9 +38,10 @@ public class BinWaypointTranslater : MonoBehaviour
           
         }
         Vector2Int[] SearchedWaypointsArray = SearchedWaypoints.ToArray();
-        //Debug.Log(string.Join("RAWBINLIST: "+",", SearchedWaypoints));
 
-        warehouseNavigation.calculateRoutes(SearchedWaypointsArray, OrderBins);
+        Vector2Int[] OrderBinArray = OrderBins.ToArray();
+
+        warehouseNavigation.calculateRoutes(SearchedWaypointsArray, OrderBinArray);
     }
     private void clearList()
     {

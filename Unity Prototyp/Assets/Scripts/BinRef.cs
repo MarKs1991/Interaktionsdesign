@@ -5,11 +5,6 @@ using UnityEngine;
 public class BinRef : MonoBehaviour
 {
 
-    public GameObject BinLeft;
-    public GameObject BinRight;
-
-    public int closestNorternHub;
-
     private int RowLength = 8;
     public GameObject RowLeft;
     public GameObject RowRight;
@@ -24,11 +19,7 @@ public class BinRef : MonoBehaviour
     public bool leftRow;
 
     private void Start()
-    {
-        //BinLeft = RowLeft.transform.GetChild(this.transform.GetSiblingIndex() -1 - closestNorternHub).gameObject;
-        //BinRight = RowRight.transform.GetChild(this.transform.GetSiblingIndex() -1 - closestNorternHub).gameObject;
-        //Wayp
-
+    {       
         int index = gameObject.transform.GetSiblingIndex();
         int offset = 0;
 
