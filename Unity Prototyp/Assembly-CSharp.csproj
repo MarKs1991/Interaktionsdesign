@@ -66,21 +66,22 @@
     <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\PlayerHitHapticEmitter.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtDeviceController.cs" />
+    <Compile Include="Assets\Scripts\WaypointRef.cs" />
     <Compile Include="Assets\CybSDK\Core\Helpers\IVirtDeviceUnityExtensions.cs" />
     <Compile Include="Assets\CybSDK\Core\Example\Scripts\Elevator.cs" />
     <Compile Include="Assets\CybSDK\Core\Helpers\RenameAttribute.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\CommisionCheck.cs" />
     <Compile Include="Assets\CybSDK\Core\Helpers\CVirtComment.cs" />
     <Compile Include="Assets\Scripts\RouteVisualizer.cs" />
+    <Compile Include="Assets\Scripts\BinWaypointTranslater.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticEmitter.cs" />
     <Compile Include="Assets\Scripts\WarehouseNavigation.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\HapticScripts\WalkAgainstColliderHapticEmitter.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtPlayerController.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticListener.cs" />
     <Compile Include="Assets\Scripts\BinRef.cs" />
-    <Compile Include="Assets\Scripts\CommisionCheck.cs" />
-    <Compile Include="Assets\Scripts\BinWaypointTranslater.cs" />
-    <Compile Include="Assets\Scripts\WaypointRef.cs" />
+    <Compile Include="Assets\Item.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

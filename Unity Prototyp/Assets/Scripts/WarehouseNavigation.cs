@@ -38,19 +38,19 @@ public class WarehouseNavigation : MonoBehaviour
     // Update is called once per frame
 
 
-    public void calculateRoutes(Vector2Int[] targetPos, Vector2Int[] OrderBins)
+    public void calculateRoutes(List<Vector2Int> targetPos)
     {
         //Vector2Int[] shortestCombination = new[] { new Vector2Int(0, 0), new Vector2Int(1, 1) };
         List<Vector2Int> shortestCombination = new List<Vector2Int>();
         List<Vector2Int> OrderBinList = new List<Vector2Int>();
         List<int> _BreakPoints = new List<int>();
 
-        //targetPos = _POS;
+        //_POS = targetPos;
 
 
         int shortestRoute = 1000000;
-        var vals = targetPos;
-        foreach (Vector2Int[] v in Permutations(vals))
+        List <Vector2Int> vals = targetPos;
+        foreach (List<Vector2Int> v in Permutations(vals))
         {
          
 
@@ -58,7 +58,7 @@ public class WarehouseNavigation : MonoBehaviour
 
             saveSubWaypoints(employeePosition.x,employeePosition.y, false);
             Breakpoints.Add(subWaypointsList.Count-1);
-            for (int i = 0; i <= targetPos.Length - 1; i++)
+            for (int i = 0; i <= targetPos.Count - 1; i++)
             {
                 resetLists();
                 if (employeePosition != targetPos[i])
@@ -78,12 +78,12 @@ public class WarehouseNavigation : MonoBehaviour
                     if (traveledDistance >= shortestRoute) break;
 
                     travelToTarget(targetPos[i].x);
-                    travelToBin(OrderBins[i]);
+                    travelToBin();
                     backInLine();
                 }
                 else
                 {
-                    travelToBin(OrderBins[i]);
+                    travelToBin();
                     backInLine();
                 }
             }            
@@ -100,12 +100,12 @@ public class WarehouseNavigation : MonoBehaviour
 
                 //_BreakPoints = Breakpoints;
 
-                OrderBinList = OrderBins.ToList<Vector2Int>();
+                //OrderBinList = OrderBins.ToList<Vector2Int>();
 
                 shortestCombination = v.ToList<Vector2Int>();
                 //Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
                 routeVisualizer.SubWaypoints = new List<Vector2Int>(subWaypointsList);
-                routeVisualizer.waypoints = shortestCombination;
+                routeVisualizer.waypoints = new List<Vector2Int>(shortestCombination);
 
                 routeVisualizer.isBin = new List<bool>(isBin);
 
@@ -179,7 +179,7 @@ public class WarehouseNavigation : MonoBehaviour
         employeePosition.x = targetPosRow;
         saveSubWaypoints(employeePosition.x, employeePosition.y, false);
     }
-    private void travelToBin(Vector2Int Bin)
+    private void travelToBin()
     {
         
         saveSubWaypoints(employeePosition.x, employeePosition.y, true);
@@ -212,16 +212,16 @@ public class WarehouseNavigation : MonoBehaviour
     }
 
 
-    public static IEnumerable<T[]> Permutations<T>(T[] values, int fromInd = 0)
+    public static IEnumerable<List<Vector2Int>> Permutations<Vector2Int>(List<Vector2Int> values, int fromInd = 0)
     {
-        if (fromInd + 1 == values.Length)
+        if (fromInd + 1 == values.Count)
             yield return values;
         else
         {
             foreach (var v in Permutations(values, fromInd + 1))
                 yield return v;
 
-            for (var i = fromInd + 1; i < values.Length; i++)
+            for (var i = fromInd + 1; i < values.Count; i++)
             {
                 SwapValues(values, fromInd, i);
                 foreach (var v in Permutations(values, fromInd + 1))
@@ -231,11 +231,11 @@ public class WarehouseNavigation : MonoBehaviour
         }
     }
 
-    private static void SwapValues<T>(T[] values, int pos1, int pos2)
+    private static void SwapValues<Vector2Int>(List<Vector2Int> values, int pos1, int pos2)
     {
         if (pos1 != pos2)
         {
-            T tmp = values[pos1];
+            Vector2Int tmp = values[pos1];
             values[pos1] = values[pos2];
             values[pos2] = tmp;
         }

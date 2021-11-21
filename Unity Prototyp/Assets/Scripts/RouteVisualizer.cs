@@ -123,24 +123,20 @@ public class RouteVisualizer : MonoBehaviour
                     if (waypointRef.BinLeft.GetComponent<BinRef>().inOrderList && waypointRef.BinLeft.GetComponent<BinRef>().notTracked)
                     {
                         NextWaypoint = waypointRef.BinLeft.transform.position;
-                        waypointRef.BinLeft.GetComponent<BinRef>().notTracked = false;
-
-                        GameObject arrowInst = GameObject.Instantiate(Arrow, new Vector3(BinWaypoint.x, 5, BinWaypoint.z), Quaternion.identity, ArrowList.transform);
-                        arrowInst.transform.LookAt(NextWaypoint);
-                        arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 0);
+                        waypointRef.BinLeft.GetComponent<BinRef>().notTracked = false;                       
                     }
                     else if (waypointRef.BinRight.GetComponent<BinRef>().inOrderList && waypointRef.BinLeft.GetComponent<BinRef>().notTracked)
                     {
                         NextWaypoint = waypointRef.BinRight.transform.position;
-                        waypointRef.BinRight.GetComponent<BinRef>().notTracked = false;
-
-                        GameObject arrowInst = GameObject.Instantiate(Arrow, new Vector3(BinWaypoint.x, 5, BinWaypoint.z), Quaternion.identity, ArrowList.transform);
-                        arrowInst.transform.LookAt(NextWaypoint);
-                        arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 0);
+                        waypointRef.BinRight.GetComponent<BinRef>().notTracked = false;                       
                     }
                 }
 
-                RouteLine.SetPosition(i - startIndex, BinWaypoint);                        
+                RouteLine.SetPosition(i - startIndex, BinWaypoint);
+
+                GameObject arrowInst = GameObject.Instantiate(Arrow, new Vector3(BinWaypoint.x, 5, BinWaypoint.z), Quaternion.identity, ArrowList.transform);
+                arrowInst.transform.LookAt(NextWaypoint);
+                arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 0);
             }        
         }
         //Debug.Log(string.Join(",", Breakpoints));

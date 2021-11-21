@@ -16,14 +16,22 @@ public class CommisionCheck : MonoBehaviour
         //if GameObject is a Good/Box place on Waggon
         if (other.gameObject.layer == 6)
         {
+
             WaggonBoxPositions[placedBoxes].GetComponent<MeshFilter>().mesh = other.transform.GetComponent<MeshFilter>().mesh;
             WaggonBoxPositions[placedBoxes].GetComponent<Renderer>().material = other.transform.GetComponent<Renderer>().material;
             WaggonBoxPositions[placedBoxes].GetComponent<MeshRenderer>().enabled = true;
             placedBoxes++;
-            Destroy(other.gameObject);
 
-            routeVisualizer.RenderRoute(PathIndex, PathIndex + 1);
-            PathIndex++;
+            other.GetComponent<Item>().addItemToCart();
+            bool allItemsFromBinCollected = other.GetComponent<Item>().checkRequiredAmount();
+
+            Destroy(other.gameObject);
+            if (allItemsFromBinCollected)
+            {
+                routeVisualizer.RenderRoute(PathIndex, PathIndex + 1);
+                PathIndex++;
+            }
+        
         }
     }
 }

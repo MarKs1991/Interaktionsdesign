@@ -11,6 +11,8 @@ public class BinRef : MonoBehaviour
     public GameObject Waypoint { get; set; }
     public GameObject WaypointList;
     public Vector2Int WaypointIndex { get; set; }
+    public Vector2Int BinIndex { get; set; }
+    public int ItemAmountinOrder { get; set; }
 
     public bool inOrderList = false;
     public bool notTracked = false;
@@ -20,11 +22,14 @@ public class BinRef : MonoBehaviour
 
     private void Start()
     {       
-        int index = gameObject.transform.GetSiblingIndex();
-        int offset = 0;
+        int RowIndex = gameObject.transform.GetSiblingIndex();
+        int CollumnIndex = gameObject.transform.parent.GetSiblingIndex();
+        BinIndex = new Vector2Int(CollumnIndex - 1, RowIndex - 1);
 
-        offset = index / RowLength + 1;
-        int offsetWaypointIndex = index + offset;
+
+        int offset = 0;
+        offset = RowIndex / RowLength + 1;
+        int offsetWaypointIndex = RowIndex + offset;
 
         Waypoint = WaypointList.transform.GetChild(offsetWaypointIndex).gameObject;
         if (leftRow)
