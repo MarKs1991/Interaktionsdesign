@@ -5,22 +5,24 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public Vector2Int BinIndex;
+    private BinRef bin;
     
     // Start is called before the first frame update
     void Start()
     {
-        BinIndex = transform.parent.gameObject.GetComponent<BinRef>().BinIndex;
+        bin = transform.parent.gameObject.GetComponent<BinRef>();
+        BinIndex = bin.BinIndex;
         
     }
 
     // Update is called once per frame
     public void addItemToCart()
     {
-        GetComponent<BinRef>().ItemAmountinOrder--;
+        bin.ItemAmountinOrder = bin.ItemAmountinOrder - 1;
     }
     public bool checkRequiredAmount()
     {
-        if(GetComponent<BinRef>().ItemAmountinOrder > 0)
+        if(bin.ItemAmountinOrder > 0)
         {
             return false;
         }

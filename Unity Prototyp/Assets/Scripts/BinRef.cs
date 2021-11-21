@@ -12,7 +12,7 @@ public class BinRef : MonoBehaviour
     public GameObject WaypointList;
     public Vector2Int WaypointIndex { get; set; }
     public Vector2Int BinIndex { get; set; }
-    public int ItemAmountinOrder { get; set; }
+    public int ItemAmountinOrder = 0;
 
     public bool inOrderList = false;
     public bool notTracked = false;
