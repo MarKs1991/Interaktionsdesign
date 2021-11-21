@@ -11,7 +11,7 @@ public class BinRef : MonoBehaviour
     public GameObject Waypoint { get; set; }
     public GameObject WaypointList;
     public Vector2Int WaypointIndex { get; set; }
-    public Vector2Int BinIndex { get; set; }
+    public Vector2Int BinIndex;
     public int ItemAmountinOrder = 0;
 
     public bool inOrderList = false;
@@ -24,7 +24,7 @@ public class BinRef : MonoBehaviour
     {       
         int RowIndex = gameObject.transform.GetSiblingIndex();
         int CollumnIndex = gameObject.transform.parent.GetSiblingIndex();
-        BinIndex = new Vector2Int(CollumnIndex - 1, RowIndex - 1);
+        BinIndex = new Vector2Int(CollumnIndex + 1, RowIndex + 1);
 
 
         int offset = 0;
@@ -44,6 +44,22 @@ public class BinRef : MonoBehaviour
         
 
     }
+    public void addItemToCart()
+    {
+        ItemAmountinOrder = ItemAmountinOrder - 1;
+    }
+    public bool checkRequiredAmount()
+    {
+        if (ItemAmountinOrder > 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     //WHY HAVE I TRIED THIS SHIT
     /*
        int offset = 1;

@@ -22,8 +22,9 @@ public class CommisionCheck : MonoBehaviour
             WaggonBoxPositions[placedBoxes].GetComponent<MeshRenderer>().enabled = true;
             placedBoxes++;
 
-            other.gameObject.GetComponent<Item>().addItemToCart();
-            bool allItemsFromBinCollected = other.GetComponent<Item>().checkRequiredAmount();
+            BinRef _bin = other.gameObject.transform.parent.GetComponent<BinRef>();
+            _bin.addItemToCart();
+            bool allItemsFromBinCollected = _bin.checkRequiredAmount();
 
             Destroy(other.gameObject);
             if (allItemsFromBinCollected)

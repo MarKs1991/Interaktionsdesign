@@ -16,19 +16,5 @@ public class Item : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void addItemToCart()
-    {
-        bin.ItemAmountinOrder = bin.ItemAmountinOrder - 1;
-    }
-    public bool checkRequiredAmount()
-    {
-        if(bin.ItemAmountinOrder > 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
+    
 }
