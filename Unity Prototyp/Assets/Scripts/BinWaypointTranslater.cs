@@ -35,16 +35,9 @@ public class BinWaypointTranslater : MonoBehaviour
             Bin.GetComponent<BinRef>().inOrderList = true;
             Bin.GetComponent<BinRef>().notPicked = true;
             Bin.GetComponent<BinRef>().notTracked = true;
-            SearchedWaypoints.Add(WaypointIndex);
-
-
-          
+            SearchedWaypoints.Add(WaypointIndex);      
         }
-        Vector2Int[] SearchedWaypointsArray = SearchedWaypoints.ToArray();
-
-        
-
-        warehouseNavigation.calculateRoutes(SearchedWaypoints);
+        warehouseNavigation.calculateRoutes(SearchedWaypoints, OrderBins);
     }
     private void clearList()
     {

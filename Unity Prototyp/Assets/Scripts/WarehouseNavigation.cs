@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Linq;
 
 public class WarehouseNavigation : MonoBehaviour
 {
@@ -25,9 +26,17 @@ public class WarehouseNavigation : MonoBehaviour
     public int traveledDistance = 0;
     public Vector2Int[] _POS;
 
+    public List<int> indexes = new List<int>();
+    public List<int> indexes2 = new List<int>();
+
+    private ListComparer listc;
 
     int shortestRoute = 1000000;
     //public Vector2Int[] shortestCombination;
+    public List<Vector2Int> targetPosSorted = new List<Vector2Int>();
+    public List<Vector3Int> BinsSorted = new List<Vector3Int>();
+
+    public List<int> Sequence = new List<int>();
 
     private void Start()
     {
@@ -35,104 +44,97 @@ public class WarehouseNavigation : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-
-
-    public void calculateRoutes(List<Vector2Int> targetPos)
-    {
-        //Vector2Int[] shortestCombination = new[] { new Vector2Int(0, 0), new Vector2Int(1, 1) };
+    public void calculateRoutes(List<Vector2Int> targetPos, List<Vector3Int> bins)
+    {        
         List<Vector2Int> shortestCombination = new List<Vector2Int>();
-        List<Vector2Int> OrderBinList = new List<Vector2Int>();
+        List<Vector3Int> shortestBinsCombination = new List<Vector3Int>();
         List<int> _BreakPoints = new List<int>();
-
-        //_POS = targetPos;
-
-
+               
         int shortestRoute = 1000000;
-        List <Vector2Int> vals = targetPos;
-        foreach (List<Vector2Int> v in Permutations(vals))
-        {
-         
 
+        foreach (List<int> v in Permutations(Sequence))
+        {
             resetNavigation();
 
-            saveSubWaypoints(employeePosition.x,employeePosition.y, false);
-            Breakpoints.Add(subWaypointsList.Count-1);
-            for (int i = 0; i <= targetPos.Count - 1; i++)
+            for(int j = 0; j<= Sequence.Count - 1; j++)
             {
-                resetLists();
-                if (employeePosition != targetPos[i])
-                {
-                    if (employeePosition.y != targetPos[i].y)
-                    {
-                        findClosedHubToTarget(targetPos[i].x, targetHubs);
-                        int nearestHub = findClosedHubToEmployee(employeePosition.x);
+                targetPosSorted.Add(targetPos[Sequence[j]]);
+                BinsSorted.Add(bins[Sequence[j]]);
+            }
 
-                        travelToHub(nearestHub);
+
+                saveSubWaypoints(employeePosition.x, employeePosition.y, false);
+                Breakpoints.Add(subWaypointsList.Count - 1);
+                for (int i = 0; i <= targetPosSorted.Count - 1; i++)
+                {
+                    
+
+                resetLists();
+                    if (employeePosition != targetPosSorted[i])
+                    {
+                        if (employeePosition.y != targetPosSorted[i].y)
+                        {
+                            findClosedHubToTarget(targetPosSorted[i].x, targetHubs);
+                            int nearestHub = findClosedHubToEmployee(employeePosition.x);
+
+                            travelToHub(nearestHub);
+
+                            if (traveledDistance >= shortestRoute) break;
+
+                            changeCollumn(targetPosSorted[i].y);
+                        }
 
                         if (traveledDistance >= shortestRoute) break;
 
-                        changeCollumn(targetPos[i].y);
+                        travelToTarget(targetPosSorted[i].x);
+                        travelToBin();
+                        backInLine();
                     }
-
-                    if (traveledDistance >= shortestRoute) break;
-
-                    travelToTarget(targetPos[i].x);
-                    travelToBin();
-                    backInLine();
+                    else
+                    {
+                        travelToBin();
+                        backInLine();
+                    }
                 }
-                else
+
+                if (traveledDistance < shortestRoute)
                 {
-                    travelToBin();
-                    backInLine();
-                }
-            }            
 
-            if(traveledDistance < shortestRoute)
-            {
+                    shortestRoute = traveledDistance;
 
-                shortestRoute = traveledDistance;
-              
-                shortestCombination.Clear();
+                    shortestCombination.Clear();
                 //subWaypointsList = shortestSubWaypointsList; 
 
                 //Debug.Log(string.Join(",", Breakpoints));
 
                 //_BreakPoints = Breakpoints;
 
+                    indexes2 = new List<int>(indexes);
                 //OrderBinList = OrderBins.ToList<Vector2Int>();
 
-                shortestCombination = v.ToList<Vector2Int>();
+                    shortestCombination = new List<Vector2Int>(targetPosSorted);
+                    shortestBinsCombination = new List<Vector3Int>(BinsSorted);
                 //Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
-                routeVisualizer.SubWaypoints = new List<Vector2Int>(subWaypointsList);
-                routeVisualizer.waypoints = new List<Vector2Int>(shortestCombination);
+                    routeVisualizer.SubWaypoints = new List<Vector2Int>(subWaypointsList);
+                    routeVisualizer.waypoints = new List<Vector2Int>(shortestCombination);
 
-                routeVisualizer.isBin = new List<bool>(isBin);
+                    routeVisualizer.isBin = new List<bool>(isBin);
 
-                routeVisualizer.Breakpoints = new List<int>(Breakpoints);
+                    routeVisualizer.Breakpoints = new List<int>(Breakpoints);
 
-                routeVisualizer.RenderRoute(0,1);
-                Debug.Log(string.Join(",", Breakpoints));
-            }
-            //Debug.Log(string.Join(",", _BreakPoints));
-        }
-        //Vector2Int[] shortestCombination1 = shortestCombination;
+                    routeVisualizer.RenderRoute(0, 1);
+                    Debug.Log(string.Join(",", Breakpoints));
+                }
+           
+        }        
+        Debug.Log(string.Join(",", shortestBinsCombination));
         Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
-        //Debug.Log(string.Join(",", OrderBinList) + "is the shortest Route with " + shortestRoute + "Steps");
-
-
     }
 
     private void findClosedHubToTarget(int target, List<int> ClosestHubs)
     {
         foreach (var Hub in Hubs)
         {
-            /*
-            if(Mathf.Abs(target - Hub) == 0)
-            {
-                throw new Exception("Kommisionierpositionen dürfen nich auf:"+ string.Join(",", Hub.ToString()) + " liegen dies sind Hubs");
-            }
-            */
             if (Mathf.Abs(target - Hub) <= RowLength)
             {
                 ClosestHubs.Add(Hub);
@@ -193,8 +195,10 @@ public class WarehouseNavigation : MonoBehaviour
     private void resetLists()
     {
         targetHubs.Clear();
-        EmployeeHubs.Clear();        
+        EmployeeHubs.Clear();
+
         //DistanceList.Add(traveledDistance);
+       
     }
 
     private void resetNavigation()
@@ -204,6 +208,8 @@ public class WarehouseNavigation : MonoBehaviour
         subWaypointsList.Clear();
         isBin.Clear();
         Breakpoints.Clear();
+        targetPosSorted.Clear();
+        BinsSorted.Clear();
     }
     private void saveSubWaypoints(int x, int y, bool _isBin)
     {
@@ -212,8 +218,8 @@ public class WarehouseNavigation : MonoBehaviour
     }
 
 
-    public static IEnumerable<List<Vector2Int>> Permutations<Vector2Int>(List<Vector2Int> values, int fromInd = 0)
-    {
+    public static IEnumerable<List<int>> Permutations(List<int> values, int fromInd = 0)
+    {      
         if (fromInd + 1 == values.Count)
             yield return values;
         else
@@ -231,11 +237,11 @@ public class WarehouseNavigation : MonoBehaviour
         }
     }
 
-    private static void SwapValues<Vector2Int>(List<Vector2Int> values, int pos1, int pos2)
+    private static void SwapValues(List<int> values, int pos1, int pos2)
     {
         if (pos1 != pos2)
         {
-            Vector2Int tmp = values[pos1];
+            int tmp = values[pos1];
             values[pos1] = values[pos2];
             values[pos2] = tmp;
         }

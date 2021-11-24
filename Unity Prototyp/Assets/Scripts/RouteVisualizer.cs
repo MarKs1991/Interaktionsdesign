@@ -26,7 +26,7 @@ public class RouteVisualizer : MonoBehaviour
     private List<int> breaks;
     public void RenderRoute(int startIndex, int endIndex)
     {
-
+        Debug.Log(endIndex);
         //Debug.Log(string.Join(",", Breakpoints));
         startIndex = Breakpoints[startIndex];
         endIndex = Breakpoints[endIndex];
