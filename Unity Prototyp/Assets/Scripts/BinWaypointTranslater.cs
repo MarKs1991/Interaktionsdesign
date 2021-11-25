@@ -30,6 +30,7 @@ public class BinWaypointTranslater : MonoBehaviour
             GameObject Bin = Rows[CollumnIndex - 1].transform.GetChild(RowIndex).gameObject;
 
             Bin.GetComponent<BinRef>().ItemAmountinOrder = itemBin.z;
+            Bin.GetComponent<BinRef>().LeftOverAmountinOrder = itemBin.z;
 
             Vector2Int WaypointIndex = Bin.GetComponent<BinRef>().WaypointIndex;
             Bin.GetComponent<BinRef>().inOrderList = true;

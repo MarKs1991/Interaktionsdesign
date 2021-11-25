@@ -11,7 +11,11 @@ public class BinRef : MonoBehaviour
     public GameObject Waypoint { get; set; }
     public GameObject WaypointList;
     public Vector2Int WaypointIndex { get; set; }
+    
+
     public Vector2Int BinIndex;
+    public string BinItem;
+    public int LeftOverAmountinOrder = 0;
     public int ItemAmountinOrder = 0;
 
     public bool inOrderList = false;
@@ -41,16 +45,19 @@ public class BinRef : MonoBehaviour
             Waypoint.GetComponent<WaypointRef>().BinRight = this.gameObject;
         }
         WaypointIndex = new Vector2Int(Waypoint.transform.GetSiblingIndex(), WaypointList.transform.GetSiblingIndex());
-        
 
+        //Platzhalter
+        string[] weinArray = { "Chardonnay", "Gewürztraminer", "Müller-Thurgau", "Gewürztraminer", "Muskateller", "Riesling", "Sauvignon Blanc", "Cabernet Sauvignon"};
+        BinItem = weinArray[Random.Range(0,7)];
     }
     public void addItemToCart()
     {
-        ItemAmountinOrder = ItemAmountinOrder - 1;
+        LeftOverAmountinOrder = LeftOverAmountinOrder - 1;
+
     }
     public bool checkRequiredAmount()
     {
-        if (ItemAmountinOrder > 0)
+        if (LeftOverAmountinOrder > 0)
         {
             return false;
         }

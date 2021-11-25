@@ -3,42 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System.Linq;
 
 public class WarehouseNavigation : MonoBehaviour
 {
-
-
     public RouteVisualizer routeVisualizer;
+    public OrderDisplay orderDisplay;
+
     public List<int> Hubs;
     public int RowLength;
 
-    public List<int> targetHubs;
-    public List<int> EmployeeHubs;
-    public List<Vector2Int> subWaypointsList = new List<Vector2Int>();
-    //List<Vector2Int> shortestSubWaypointsList = new List<Vector2Int>();
-    public List<bool> isBin = new List<bool>();
-    public List<int> Breakpoints = new List<int>();
+    private List<int> targetHubs = new List<int>();
+    private List<int> EmployeeHubs = new List<int>();
+    private List<Vector2Int> subWaypointsList = new List<Vector2Int>();
+    private List<bool> isBin = new List<bool>();
+    private List<int> Breakpoints = new List<int>();
 
     public Vector2Int employeePosition;
     public Vector2Int initialEmployeePos;
 
-    public int traveledDistance = 0;
-    public Vector2Int[] _POS;
+    private int traveledDistance = 0;
 
-    public List<int> indexes = new List<int>();
-    public List<int> indexes2 = new List<int>();
+    private int shortestRoute = 1000000;
+    private List<Vector2Int> targetPosSorted = new List<Vector2Int>();
+    private List<Vector3Int> BinsSorted = new List<Vector3Int>();
 
-    private ListComparer listc;
+    private List<Vector3Int> shortestBinsCombination = new List<Vector3Int>();
 
-    int shortestRoute = 1000000;
-    //public Vector2Int[] shortestCombination;
-    public List<Vector2Int> targetPosSorted = new List<Vector2Int>();
-    public List<Vector3Int> BinsSorted = new List<Vector3Int>();
-
-    public List<Vector3Int> shortestBinsCombination = new List<Vector3Int>();
-
-    public List<int> Sequence = new List<int>();
+    private List<int> Sequence = new List<int>();
 
     private void Start()
     {
@@ -53,8 +44,6 @@ public class WarehouseNavigation : MonoBehaviour
         List<int> _BreakPoints = new List<int>();
                
         int shortestRoute = 1000000;
-
-        
 
         for (int n = 0; n <= targetPos.Count - 1; n++)
         {
@@ -114,32 +103,28 @@ public class WarehouseNavigation : MonoBehaviour
                     shortestRoute = traveledDistance;
 
                     shortestCombination.Clear();
-                //subWaypointsList = shortestSubWaypointsList; 
-
-                //Debug.Log(string.Join(",", Breakpoints));
-
-                //_BreakPoints = Breakpoints;
-
-                    indexes2 = new List<int>(indexes);
-                //OrderBinList = OrderBins.ToList<Vector2Int>();
 
                     shortestCombination = new List<Vector2Int>(targetPosSorted);
                     shortestBinsCombination = new List<Vector3Int>(BinsSorted);
-                //Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
                     routeVisualizer.SubWaypoints = new List<Vector2Int>(subWaypointsList);
                     routeVisualizer.waypoints = new List<Vector2Int>(shortestCombination);
 
                     routeVisualizer.isBin = new List<bool>(isBin);
-
                     routeVisualizer.Breakpoints = new List<int>(Breakpoints);
+                    //orderDisplay.BinOrderList = new List<Vector3Int>(shortestBinsCombination);
 
-                    routeVisualizer.RenderRoute(0, 1);
+
+
+                    
                     Debug.Log(string.Join(",", Breakpoints));
                 }
            
         }        
         Debug.Log(string.Join(",", shortestBinsCombination));
         Debug.Log(string.Join(",", shortestCombination) + "is the shortest Route with " + shortestRoute + "Steps");
+
+        routeVisualizer.RenderRoute(0, 1);
+        orderDisplay.generateOrderList(shortestBinsCombination);
     }
 
     private void findClosedHubToTarget(int target, List<int> ClosestHubs)
@@ -207,9 +192,6 @@ public class WarehouseNavigation : MonoBehaviour
     {
         targetHubs.Clear();
         EmployeeHubs.Clear();
-
-        //DistanceList.Add(traveledDistance);
-       
     }
 
     private void resetNavigation()

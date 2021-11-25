@@ -12,25 +12,19 @@ public class RouteVisualizer : MonoBehaviour
     public GameObject ArrowList;
     private bool wasPicked;
 
-    //private Vector2Int [] waypoints;
     public LineRenderer RouteLine;
-
     public List<Vector2Int> SubWaypoints { get; set; }
     public List<Vector2Int> waypoints { get; set; }
     public List<bool> isBin { get; set; }
     public List<int> Breakpoints { get; set; }
-    public int PathIndex { get; set; }
 
-    public Vector3 LastWaypoint;
-
-    private List<int> breaks;
     public void RenderRoute(int startIndex, int endIndex)
     {
-        Debug.Log(endIndex);
+
         startIndex = Breakpoints[startIndex];
         endIndex = Breakpoints[endIndex];
 
-        List<Vector3Int> BinList = new List<Vector3Int>(warehouseNavigation.shortestBinsCombination);
+        //List<Vector3Int> BinList = new List<Vector3Int>(warehouseNavigation.shortestBinsCombination);
         destroyOldArrows();
         //List<Vector3> BinWaypoint1 = new List<Vector3>(waypoints, waypoints.y,);
         Vector3 NextWaypoint = new Vector3();
@@ -72,8 +66,6 @@ public class RouteVisualizer : MonoBehaviour
             }        
         }
     }
-
-
     private void destroyOldArrows()
     {
         for (int i = 0; i <= ArrowList.transform.childCount - 1; i++)
@@ -81,11 +73,6 @@ public class RouteVisualizer : MonoBehaviour
             Destroy(ArrowList.transform.GetChild(i).gameObject);
         }
     }
-
-
-
-
-
     /*
     for (int i = startIndex; i <= endIndex; i++)
         {

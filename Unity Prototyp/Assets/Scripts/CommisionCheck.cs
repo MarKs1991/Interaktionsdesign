@@ -5,6 +5,7 @@ using UnityEngine;
 public class CommisionCheck : MonoBehaviour
 {
     public RouteVisualizer routeVisualizer;
+    public OrderDisplay orderDisplay;
 
     public List<Transform> WaggonBoxPositions;
     private int placedBoxes = 0;
@@ -24,6 +25,9 @@ public class CommisionCheck : MonoBehaviour
 
             BinRef _bin = other.gameObject.transform.parent.GetComponent<BinRef>();
             _bin.addItemToCart();
+            orderDisplay.UpdateBins(_bin);
+
+
             bool allItemsFromBinCollected = _bin.checkRequiredAmount();
 
             Destroy(other.gameObject);
