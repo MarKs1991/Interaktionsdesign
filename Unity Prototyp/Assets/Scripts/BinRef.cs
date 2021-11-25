@@ -36,8 +36,8 @@ public class BinRef : MonoBehaviour
         WaypointIndex = new Vector2Int(Waypoint.transform.GetSiblingIndex(), WaypointList.transform.GetSiblingIndex());
 
         //Platzhalter
-        string[] weinArray = { "Chardonnay", "Gewürztraminer", "Müller-Thurgau", "Gewürztraminer", "Muskateller", "Riesling", "Sauvignon Blanc", "Cabernet Sauvignon"};
-        BinItem = weinArray[Random.Range(0,7)];
+        //string[] weinArray = { "Chardonnay", "Gewürztraminer", "Müller-Thurgau", "Gewürztraminer", "Muskateller", "Riesling", "Sauvignon Blanc", "Cabernet Sauvignon"};
+        //BinItem = weinArray[Random.Range(0,7)];
     }
     public void addItemToCart()
     {

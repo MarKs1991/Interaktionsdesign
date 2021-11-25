@@ -10,7 +10,8 @@ public class OrderDisplay : MonoBehaviour
     public Transform ItemAmountUiCollumn;
     public Transform PickedItemAmountUiCollumn;
     public GameObject OrderItemPrefab;
-
+    public TextMeshProUGUI OrderItemNames;
+    public TextMeshProUGUI OrderItemAmounts;
 
     public GameObject BinRows;
     //public List<Vector3Int> BinOrderList { get; set; }
@@ -31,6 +32,9 @@ public class OrderDisplay : MonoBehaviour
             CreateItemUiElement(BinIndexUiCollumn, BinIndex);
             CreateItemUiElement(ItemAmountUiCollumn, ItemAmount, "/ ");
             CreateItemUiElement(PickedItemAmountUiCollumn, 0.ToString());
+
+            OrderItemNames.text += ItemName + "\n";
+            OrderItemAmounts.text += ItemAmount + "\n";
         }
     }
     private void CreateItemUiElement(Transform Parent, string information)
