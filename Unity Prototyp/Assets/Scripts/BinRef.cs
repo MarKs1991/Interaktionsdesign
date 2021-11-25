@@ -6,13 +6,10 @@ public class BinRef : MonoBehaviour
 {
 
     private int RowLength = 8;
-    public GameObject RowLeft;
-    public GameObject RowRight;
     public GameObject Waypoint { get; set; }
     public GameObject WaypointList;
     public Vector2Int WaypointIndex { get; set; }
     
-
     public Vector2Int BinIndex;
     public string BinItem;
     public int LeftOverAmountinOrder = 0;
@@ -22,7 +19,6 @@ public class BinRef : MonoBehaviour
     public bool notTracked = false;
     public bool notPicked = false;
     public bool wasPicked = false;
-    public bool leftRow;
 
     private void Start()
     {       
@@ -36,14 +32,7 @@ public class BinRef : MonoBehaviour
         int offsetWaypointIndex = RowIndex + offset;
 
         Waypoint = WaypointList.transform.GetChild(offsetWaypointIndex).gameObject;
-        if (leftRow)
-        {
-            Waypoint.GetComponent<WaypointRef>().BinLeft = this.gameObject;
-        }
-        else 
-        { 
-            Waypoint.GetComponent<WaypointRef>().BinRight = this.gameObject;
-        }
+        
         WaypointIndex = new Vector2Int(Waypoint.transform.GetSiblingIndex(), WaypointList.transform.GetSiblingIndex());
 
         //Platzhalter
@@ -66,6 +55,7 @@ public class BinRef : MonoBehaviour
             return false;
         }
     }
+
 
     //WHY HAVE I TRIED THIS SHIT
     /*
