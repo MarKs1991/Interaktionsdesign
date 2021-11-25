@@ -44,7 +44,7 @@ public class OrderDisplay : MonoBehaviour
         orderItem.GetComponent<TextMeshProUGUI>().text = Addon + information;
     }
 
-    public void UpdateBins(BinRef bin)
+    public bool UpdateBins(BinRef bin)
     {
         
         string pickedUpBinIndex = bin.BinIndex.ToString();
@@ -59,6 +59,28 @@ public class OrderDisplay : MonoBehaviour
             if (pickedUpBinIndex.Equals(checkedbinIndex))
             {
                 PickedItemAmountUiCollumn.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = (completeAmount - leftOverAmount).ToString();
+                if (leftOverAmount == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public void checkComplete(BinRef bin)
+    {
+        string pickedUpBinIndex = bin.BinIndex.ToString();
+        Debug.Log(pickedUpBinIndex);
+
+        for (int i = 0; i <= BinIndexUiCollumn.childCount - 1; i++)
+        {
+            string checkedbinIndex = BinIndexUiCollumn.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text;
+            if (pickedUpBinIndex.Equals(checkedbinIndex))
+            {
+                ItemNameUiCollumn.transform.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                BinIndexUiCollumn.transform.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                PickedItemAmountUiCollumn.transform.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                ItemAmountUiCollumn.transform.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
             }
         }
     }

@@ -57,13 +57,13 @@ public class BinRef : MonoBehaviour
     }
     public bool checkRequiredAmount()
     {
-        if (LeftOverAmountinOrder > 0)
+        if (LeftOverAmountinOrder == 0)
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 

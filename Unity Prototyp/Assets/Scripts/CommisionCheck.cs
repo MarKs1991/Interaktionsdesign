@@ -25,14 +25,15 @@ public class CommisionCheck : MonoBehaviour
 
             BinRef _bin = other.gameObject.transform.parent.GetComponent<BinRef>();
             _bin.addItemToCart();
-            orderDisplay.UpdateBins(_bin);
+             bool rightCollected = orderDisplay.UpdateBins(_bin);
 
 
-            bool allItemsFromBinCollected = _bin.checkRequiredAmount();
+            bool allandRightItemsCollected = _bin.checkRequiredAmount();
 
             Destroy(other.gameObject);
-            if (allItemsFromBinCollected)
+            if (allandRightItemsCollected)
             {
+                orderDisplay.checkComplete(_bin);
                 routeVisualizer.RenderRoute(PathIndex, PathIndex + 1);
                 PathIndex++;
             }
