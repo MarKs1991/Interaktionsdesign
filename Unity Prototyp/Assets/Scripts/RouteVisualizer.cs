@@ -27,25 +27,67 @@ public class RouteVisualizer : MonoBehaviour
     public void RenderRoute(int startIndex, int endIndex)
     {
         Debug.Log(endIndex);
-        //Debug.Log(string.Join(",", Breakpoints));
         startIndex = Breakpoints[startIndex];
         endIndex = Breakpoints[endIndex];
 
-        //List<Vector2Int> BinList = new List<Vector2Int>(binWaypointTranslater.OrderBins);
-
-
+        List<Vector3Int> BinList = new List<Vector3Int>(warehouseNavigation.shortestBinsCombination);
         destroyOldArrows();
-
-
         //List<Vector3> BinWaypoint1 = new List<Vector3>(waypoints, waypoints.y,);
         Vector3 NextWaypoint = new Vector3();
-
-
-
         RouteLine.positionCount = (endIndex - startIndex) + 1;
 
-
         for (int i = startIndex; i <= endIndex; i++)
+        {
+            /*
+            if (WaypointCollumns[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).GetComponent<WaypointRef>() != null)
+            {
+                NextWaypoint = WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.transform.position;
+                RouteLine.SetPosition(i - startIndex, NextWaypoint);
+            }*/
+
+            if (isBin[i])
+            {
+                
+                NextWaypoint = BinRows[SubWaypoints[i].y - 1].gameObject.transform.GetChild(SubWaypoints[i].x - 1).gameObject.transform.position;
+                RouteLine.SetPosition(i - startIndex, NextWaypoint);
+                
+            }
+            else
+            {
+                Vector3 BinWaypoint = WaypointCollumns[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).transform.position;
+
+                if (i != SubWaypoints.Count - 1 && !isBin[i + 1])
+                {
+                    NextWaypoint = WaypointCollumns[SubWaypoints[i + 1].y].transform.GetChild(SubWaypoints[i + 1].x).transform.position;
+                }
+                else if (i != SubWaypoints.Count - 1 && isBin[i + 1])
+                {
+                    NextWaypoint = BinRows[SubWaypoints[i + 1].y- 1].gameObject.transform.GetChild(SubWaypoints[i + 1].x - 1).gameObject.transform.position;
+                }
+
+                RouteLine.SetPosition(i - startIndex, BinWaypoint);
+                GameObject arrowInst = GameObject.Instantiate(Arrow, new Vector3(BinWaypoint.x, 5, BinWaypoint.z), Quaternion.identity, ArrowList.transform);
+                arrowInst.transform.LookAt(NextWaypoint);
+                arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 0);
+            }        
+        }
+    }
+
+
+    private void destroyOldArrows()
+    {
+        for (int i = 0; i <= ArrowList.transform.childCount - 1; i++)
+        {
+            Destroy(ArrowList.transform.GetChild(i).gameObject);
+        }
+    }
+
+
+
+
+
+    /*
+    for (int i = startIndex; i <= endIndex; i++)
         {
             if (WaypointCollumns[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).GetComponent<WaypointRef>() != null)
             {
@@ -139,15 +181,5 @@ public class RouteVisualizer : MonoBehaviour
                 arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 0);
             }        
         }
-        //Debug.Log(string.Join(",", Breakpoints));
-    }
-
-
-    private void destroyOldArrows()
-    {
-        for (int i = 0; i <= ArrowList.transform.childCount - 1; i++)
-        {
-            Destroy(ArrowList.transform.GetChild(i).gameObject);
-        }
-    }
+    */
 }
