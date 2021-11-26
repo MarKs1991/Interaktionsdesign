@@ -20,7 +20,7 @@ public class BinRef : MonoBehaviour
     public bool notPicked = false;
     public bool wasPicked = false;
 
-    private void Start()
+    private void Awake()
     {       
         int RowIndex = gameObject.transform.GetSiblingIndex();
         int CollumnIndex = gameObject.transform.parent.GetSiblingIndex();

@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\WarehouseNavigation.cs" />
     <Compile Include="Assets\Scripts\BinRef.cs" />
+    <Compile Include="Assets\Weinlager\CreateOrder.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
