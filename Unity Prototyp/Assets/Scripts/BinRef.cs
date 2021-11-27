@@ -15,6 +15,8 @@ public class BinRef : MonoBehaviour
     public int LeftOverAmountinOrder = 0;
     public int ItemAmountinOrder = 0;
 
+    public bool lastItem = false;
+
     public bool inOrderList = false;
     public bool notTracked = false;
     public bool notPicked = false;

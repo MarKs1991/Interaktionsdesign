@@ -20,16 +20,32 @@ public class OrderDisplay : MonoBehaviour
 
         for (int i = 0; i <= BinOrderList.Count - 1; i++)
         {
-            BinRef binRef = BinRows.transform.GetChild(BinOrderList[i].x - 1).gameObject.transform.GetChild(BinOrderList[i].y - 1).gameObject.GetComponent<BinRef>();
-           
-            string ItemName = binRef.BinItem;
-            string BinIndex = binRef.BinIndex.ToString();
-            string ItemAmount = binRef.ItemAmountinOrder.ToString();
+            if (i < BinOrderList.Count - 1) 
+            { 
 
-            CreateItemUiElement(ItemNameUiCollumn, ItemName);
-            CreateItemUiElement(BinIndexUiCollumn, BinIndex);
-            CreateItemUiElement(ItemAmountUiCollumn, ItemAmount, "/ ");
-            CreateItemUiElement(PickedItemAmountUiCollumn, 0.ToString());
+                BinRef binRef = BinRows.transform.GetChild(BinOrderList[i].x - 1).gameObject.transform.GetChild(BinOrderList[i].y - 1).gameObject.GetComponent<BinRef>();
+
+                string ItemName = binRef.BinItem;
+                string BinIndex = binRef.BinIndex.ToString();
+                string ItemAmount = binRef.ItemAmountinOrder.ToString();
+
+                CreateItemUiElement(ItemNameUiCollumn, ItemName);
+                CreateItemUiElement(BinIndexUiCollumn, BinIndex);
+                CreateItemUiElement(ItemAmountUiCollumn, ItemAmount, "/ ");
+                CreateItemUiElement(PickedItemAmountUiCollumn, 0.ToString());
+            }
+            else
+            {
+                string ItemName = "Bestellung abliefern";
+                string BinIndex = "Kundentheke A";
+                string ItemAmount = "";
+
+                CreateItemUiElement(ItemNameUiCollumn, ItemName);
+                CreateItemUiElement(BinIndexUiCollumn, BinIndex);
+                CreateItemUiElement(ItemAmountUiCollumn, ItemAmount, "/ ");
+                CreateItemUiElement(PickedItemAmountUiCollumn, 0.ToString());
+            }
+
         }
     }
     private void CreateItemUiElement(Transform Parent, string information)

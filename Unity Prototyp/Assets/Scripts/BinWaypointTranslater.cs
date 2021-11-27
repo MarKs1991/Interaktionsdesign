@@ -21,7 +21,7 @@ public class BinWaypointTranslater : MonoBehaviour
 
     private void TranslateBinToWaypoint()
     {
-       
+        int i = 0;
         foreach (var itemBin in OrderBins)
         {
             int CollumnIndex = itemBin.x;
@@ -36,8 +36,15 @@ public class BinWaypointTranslater : MonoBehaviour
             Bin.GetComponent<BinRef>().inOrderList = true;
             Bin.GetComponent<BinRef>().notPicked = true;
             Bin.GetComponent<BinRef>().notTracked = true;
-            SearchedWaypoints.Add(WaypointIndex);      
+            SearchedWaypoints.Add(WaypointIndex);
+            //if(i == OrderBins.Count - 1)
+           // {
+           //     Bin.GetComponent<BinRef>().lastItem = true;
+            //}
+            //i++;
         }
+
+
         warehouseNavigation.calculateRoutes(SearchedWaypoints, OrderBins);
     }
     private void clearList()

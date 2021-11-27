@@ -55,6 +55,7 @@ public class WarehouseNavigation : MonoBehaviour
 
         foreach (List<int> v in Permutations(Sequence))
         {
+            
             resetNavigation();
 
             for (int j = 0; j <= Sequence.Count - 1; j++)
@@ -62,6 +63,7 @@ public class WarehouseNavigation : MonoBehaviour
                 targetPosSorted.Add(targetPos[Sequence[j]]);
                 BinsSorted.Add(bins[Sequence[j]]);
             }
+            setCompletionPoints();
 
             saveSubWaypoints(employeePosition.x, employeePosition.y, false);
                 Breakpoints.Add(subWaypointsList.Count - 1);
@@ -208,6 +210,12 @@ public class WarehouseNavigation : MonoBehaviour
     {
         subWaypointsList.Add(new Vector2Int(x, y));
         isBin.Add(_isBin);
+    }
+
+    private void setCompletionPoints()
+    {
+        targetPosSorted.Add(new Vector2Int(1,1));
+        BinsSorted.Add(new Vector3Int(1, 1, 0));
     }
 
 
