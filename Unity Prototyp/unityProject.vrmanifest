@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.interaktionsdesign.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "F:\\GitHub Repos\\C# Unity\\Interaktionsdesign\\Unity Prototyp\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Interaktionsdesign [Testing]"
+        }
+      }
+    }
+  ]
+}

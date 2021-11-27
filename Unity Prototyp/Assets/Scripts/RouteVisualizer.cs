@@ -35,7 +35,7 @@ public class RouteVisualizer : MonoBehaviour
         {
 
 
-            if (i >= Breakpoints[Breakpoints.Count - 2])
+            if (i == Breakpoints[Breakpoints.Count - 1])
             {
                 RouteLine.SetPosition(i - startIndex, SubmissionPoint.position);
             }
