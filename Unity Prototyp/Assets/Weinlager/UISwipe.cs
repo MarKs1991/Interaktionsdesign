@@ -9,23 +9,52 @@ public class UISwipe : MonoBehaviour
     public string MoveOutAnimation;
     public string MoveInAnimation;
 
+    public SteamVR_Action_Boolean TriggerPressed;
+
+    public Transform ControllerPos;
+    private Vector3 StartingPos;
+    public float sensitivity = .2f;
+    public int Direction = 1;
+
+    private bool triggerPressed;
+    private void Start()
+    {
+        TriggerPressed.AddOnStateDownListener(rightSwipeEvent, SteamVR_Input_Sources.Any);
+
+    }
+
     void Update()
     {
         if (!this.GetComponent<Animation>().isPlaying)
         {
-            if (Input.GetKeyDown(KeyCode.O) && !this.isOut)
-                PlayAnimation(MoveOutAnimation);
-            if (Input.GetKeyDown(KeyCode.I) && this.isOut)
-                PlayAnimation(MoveInAnimation);
-
-            //Trigger swipe
-         
+            if (triggerPressed)
+            {
+                Debug.Log(ControllerPos.localPosition.x - StartingPos.x);
+                if ((ControllerPos.localPosition.x - StartingPos.x) * Direction < sensitivity && this.isOut)
+                {
+                    PlayAnimation(MoveInAnimation);
+                    triggerPressed = false;
+                    Debug.Log("c");
+                }
+                else if ((ControllerPos.localPosition.x - StartingPos.x) * Direction > -sensitivity && !this.isOut)
+                {
+                    PlayAnimation(MoveOutAnimation);
+                    triggerPressed = false;
+                    Debug.Log("o");
+                }
+            }
         }
     }
-
     void PlayAnimation(string clipName)
     {
         this.GetComponent<Animation>().Play(clipName);
         this.isOut = !this.isOut;
+    }
+
+    void rightSwipeEvent(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        StartingPos = ControllerPos.localPosition;
+        triggerPressed = true;
+        Debug.Log("r");
     }
 }

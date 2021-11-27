@@ -33,20 +33,20 @@ public class RouteVisualizer : MonoBehaviour
 
         for (int i = startIndex; i <= endIndex; i++)
         {
-            
-            if (i == Breakpoints[Breakpoints.Count - 1])
+
+
+            if (i >= Breakpoints[Breakpoints.Count - 2])
             {
-                NextWaypoint = WaypointCollumns[SubWaypoints[i].y].gameObject.transform.GetChild(SubWaypoints[i].x).gameObject.transform.position;
                 RouteLine.SetPosition(i - startIndex, SubmissionPoint.position);
             }
-
-            if (isBin[i])
+            else if (isBin[i])
             {
                 
                 NextWaypoint = BinRows[SubWaypoints[i].y - 1].gameObject.transform.GetChild(SubWaypoints[i].x - 1).gameObject.transform.position;
                 RouteLine.SetPosition(i - startIndex, NextWaypoint);
                 
             }
+            
             else
             {
                 Vector3 BinWaypoint = WaypointCollumns[SubWaypoints[i].y].transform.GetChild(SubWaypoints[i].x).transform.position;
