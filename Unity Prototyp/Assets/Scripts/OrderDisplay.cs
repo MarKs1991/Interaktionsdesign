@@ -37,13 +37,13 @@ public class OrderDisplay : MonoBehaviour
             else
             {
                 string ItemName = "Bestellung abliefern";
-                string BinIndex = "Kundentheke A";
-                string ItemAmount = "";
+                string BinIndex = "Theke A";
+                //string ItemAmount = "";
 
                 CreateItemUiElement(ItemNameUiCollumn, ItemName);
                 CreateItemUiElement(BinIndexUiCollumn, BinIndex);
-                CreateItemUiElement(ItemAmountUiCollumn, ItemAmount, "/ ");
-                CreateItemUiElement(PickedItemAmountUiCollumn, 0.ToString());
+                //CreateItemUiElement(ItemAmountUiCollumn, ItemAmount, "/ ");
+                //CreateItemUiElement(PickedItemAmountUiCollumn, 0.ToString());
             }
 
         }
