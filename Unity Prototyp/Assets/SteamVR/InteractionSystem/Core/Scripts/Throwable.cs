@@ -12,7 +12,7 @@ namespace Valve.VR.InteractionSystem
 {
 	//-------------------------------------------------------------------------
 	[RequireComponent( typeof( Interactable ) )]
-	[RequireComponent( typeof( Rigidbody ) )]
+	//[RequireComponent( typeof( Rigidbody ) )]
 	public class Throwable : MonoBehaviour
 	{
 		[EnumFlags]
@@ -63,16 +63,17 @@ namespace Valve.VR.InteractionSystem
 
 
         //-------------------------------------------------
-        protected virtual void Awake()
+        public virtual void Awake()
 		{
 			velocityEstimator = GetComponent<VelocityEstimator>();
             interactable = GetComponent<Interactable>();
 
 
-
-            rigidbody = GetComponent<Rigidbody>();
-            rigidbody.maxAngularVelocity = 50.0f;
-
+            if (gameObject.GetComponent<Rigidbody>())
+            {
+                rigidbody = GetComponent<Rigidbody>();
+                rigidbody.maxAngularVelocity = 50.0f;
+            }
 
             if(attachmentOffset != null)
             {
