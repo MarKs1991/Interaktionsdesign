@@ -87,6 +87,8 @@
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticListener.cs" />
     <Compile Include="Assets\Scripts\BinRef.cs" />
     <Compile Include="Assets\SubmissionPointTrigger.cs" />
+    <Compile Include="Assets\OrderEvent.cs" />
+    <Compile Include="Assets\HololensTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

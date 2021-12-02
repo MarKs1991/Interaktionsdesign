@@ -11,6 +11,7 @@ public class RouteVisualizer : MonoBehaviour
     public Transform SubmissionPoint;
     public GameObject Arrow;
     public GameObject ArrowList;
+    public GameObject SubmissionTrigger;
     private bool wasPicked;
 
     public LineRenderer RouteLine;
@@ -37,6 +38,7 @@ public class RouteVisualizer : MonoBehaviour
 
             if (i == Breakpoints[Breakpoints.Count - 1])
             {
+                SubmissionTrigger.SetActive(true);
                 RouteLine.SetPosition(i - startIndex, SubmissionPoint.position);
             }
             else if (isBin[i])

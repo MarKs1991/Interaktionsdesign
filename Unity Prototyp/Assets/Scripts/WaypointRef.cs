@@ -9,6 +9,5 @@ public class WaypointRef : MonoBehaviour
     
     public GameObject RowLeft;
     public GameObject RowRight;
-    public int closestNorternHub;
-   
+    public int closestNorternHub;  
 }

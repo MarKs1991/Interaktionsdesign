@@ -12,7 +12,10 @@ public class SubmissionPointTrigger : MonoBehaviour
         //if Player Hits Collider
         if (other.gameObject.layer == 7)
         {
-            Cart = CartSubmissionPoint;
+            Cart.transform.parent = CartSubmissionPoint.transform;
+            Cart.transform.position = CartSubmissionPoint.transform.position;
+            Cart.transform.rotation = CartSubmissionPoint.transform.rotation;
+            this.gameObject.SetActive(false);
         }
     }
 }
