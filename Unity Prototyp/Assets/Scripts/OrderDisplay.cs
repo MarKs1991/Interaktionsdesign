@@ -99,4 +99,16 @@ public class OrderDisplay : MonoBehaviour
             }
         }
     }
+
+    public void checkCompletion()
+    {
+
+
+                ItemNameUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                BinIndexUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                //PickedItemAmountUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                ItemAmountUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+            
+    }
+    
 }

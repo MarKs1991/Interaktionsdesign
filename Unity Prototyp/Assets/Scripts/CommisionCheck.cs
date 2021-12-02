@@ -56,7 +56,6 @@ public class CommisionCheck : MonoBehaviour
                 {
                     Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!";
                     Notification.gameObject.SetActive(true);
-                    Debug.Log("no more needed");
                 }
 
             }

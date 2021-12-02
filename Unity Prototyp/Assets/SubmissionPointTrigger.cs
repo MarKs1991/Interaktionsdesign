@@ -8,6 +8,7 @@ public class SubmissionPointTrigger : MonoBehaviour
     [SerializeField] private Transform CartSubmissionPoint;
     [SerializeField] private Transform Cart;
     [SerializeField] private TextMeshProUGUI Notification;
+    [SerializeField] private OrderDisplay orderDisplay;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +21,7 @@ public class SubmissionPointTrigger : MonoBehaviour
             Cart.transform.parent = CartSubmissionPoint.transform;
             Notification.gameObject.SetActive(true);
             Notification.text = "Bestellung abgeliefert";
-            
+            orderDisplay.checkCompletion();
             this.gameObject.SetActive(false);
         }
     }
