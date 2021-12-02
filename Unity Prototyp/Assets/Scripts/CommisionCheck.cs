@@ -52,15 +52,20 @@ public class CommisionCheck : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!";
+                    Notification.gameObject.SetActive(true);
+                    Debug.Log("no more needed");
+                }
 
             }
-            Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!";
-            Notification.gameObject.SetActive(true);
-            Debug.Log("no more needed");
+            
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        if(Notification.text.Equals(Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!"))
         Notification.gameObject.SetActive(false);
     }
 }

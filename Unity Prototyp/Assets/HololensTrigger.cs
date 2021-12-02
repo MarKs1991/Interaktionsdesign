@@ -5,6 +5,7 @@ using UnityEngine;
 public class HololensTrigger : MonoBehaviour
 {
     public GameObject Canvas;
+    public bool hololensOn = false;
 
     private void Start()
     {
@@ -12,10 +13,10 @@ public class HololensTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 9)
+        if (other.gameObject.layer == 8)
         {
             Canvas.SetActive(true);
-            Debug.Log("hit");
+            hololensOn = true;
             Destroy(other.gameObject);
         }
     }

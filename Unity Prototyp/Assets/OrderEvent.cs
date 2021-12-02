@@ -5,10 +5,11 @@ using UnityEngine;
 public class OrderEvent : MonoBehaviour
 {
     public BinWaypointTranslater binWaypointTranslater;
+    public HololensTrigger hololensTrigger;
     private bool isScanned = false;
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
         
     }
@@ -16,16 +17,20 @@ public class OrderEvent : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if Scanner 
-        if(other.gameObject.layer == 8)
-        scanOrder();
+        if(other.gameObject.layer == 10)
+        {
+            if(hololensTrigger.hololensOn)
+            {
+                scanOrder();
+            }          
+        }       
     }
 
     void scanOrder()
     {
         if (!isScanned)
         {
-            binWaypointTranslater.TranslateBinToWaypoint();
-            
+            binWaypointTranslater.TranslateBinToWaypoint();           
         }
     }
 }

@@ -8,10 +8,9 @@ public class RouteVisualizer : MonoBehaviour
     public BinWaypointTranslater binWaypointTranslater;
     public GameObject[] BinRows;
     public GameObject[] WaypointCollumns;
-    public Transform SubmissionPoint;
+    public GameObject SubmissionPoint;
     public GameObject Arrow;
     public GameObject ArrowList;
-    public GameObject SubmissionTrigger;
     private bool wasPicked;
 
     public LineRenderer RouteLine;
@@ -38,15 +37,13 @@ public class RouteVisualizer : MonoBehaviour
 
             if (i == Breakpoints[Breakpoints.Count - 1])
             {
-                SubmissionTrigger.SetActive(true);
-                RouteLine.SetPosition(i - startIndex, SubmissionPoint.position);
+                SubmissionPoint.SetActive(true);
+                RouteLine.SetPosition(i - startIndex, new Vector3(SubmissionPoint.transform.position.x, 0.72f, SubmissionPoint.transform.position.z)) ;
             }
             else if (isBin[i])
-            {
-                
+            {              
                 NextWaypoint = BinRows[SubWaypoints[i].y - 1].gameObject.transform.GetChild(SubWaypoints[i].x - 1).gameObject.transform.position;
-                RouteLine.SetPosition(i - startIndex, NextWaypoint);
-                
+                RouteLine.SetPosition(i - startIndex, NextWaypoint);          
             }
             
             else
