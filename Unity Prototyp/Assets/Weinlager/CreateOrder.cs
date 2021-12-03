@@ -9,6 +9,8 @@ public class CreateOrder : MonoBehaviour
     public BinWaypointTranslater BinWaypointTranslater;
     public TextMeshProUGUI OrderItemNames;
     public TextMeshProUGUI OrderItemAmounts;
+    public GameObject AmountDisplay;
+    [HideInInspector] public List<GameObject> AmountDisplays;
     private BinRef[] Bins;
     private BinRef[] OrderBins = new BinRef[7];
     private int[] OrderAmounts = new int[7];
@@ -41,6 +43,17 @@ public class CreateOrder : MonoBehaviour
             OrderItemAmounts.text += OrderAmounts[j] + "\n\n";
             BinWaypointTranslater.OrderBins.Add(Order[j]);
         }
+
+        for (int z = 0; z < Order.Length; z++)
+        {
+            GameObject a = Instantiate<GameObject>(AmountDisplay);
+
+            a.transform.SetParent(OrderBins[z].gameObject.transform, false);
+            a.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = OrderAmounts[z].ToString();
+            AmountDisplays.Add(a);
+        }
+        foreach (GameObject g in AmountDisplays)
+            g.SetActive(false);
     }
 
     private BinRef getRandomBin()

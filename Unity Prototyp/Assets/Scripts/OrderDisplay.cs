@@ -10,6 +10,7 @@ public class OrderDisplay : MonoBehaviour
     public Transform ItemAmountUiCollumn;
     public Transform PickedItemAmountUiCollumn;
     public GameObject OrderItemPrefab;
+    public GameObject Order;
 
     public GameObject BinRows;
     //public List<Vector3Int> BinOrderList { get; set; }
@@ -47,6 +48,10 @@ public class OrderDisplay : MonoBehaviour
             }
 
         }
+
+        List<GameObject> a = Order.GetComponent<CreateOrder>().AmountDisplays;
+        foreach (GameObject g in a)
+            g.SetActive(true);
     }
     private void CreateItemUiElement(Transform Parent, string information)
     {
