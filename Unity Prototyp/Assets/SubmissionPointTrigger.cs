@@ -9,18 +9,18 @@ public class SubmissionPointTrigger : MonoBehaviour
     [SerializeField] private Transform Cart;
     [SerializeField] private TextMeshProUGUI Notification;
     [SerializeField] private OrderDisplay orderDisplay;
-
+    [SerializeField] private CartPosition cartPosition;
     private void OnTriggerEnter(Collider other)
     {
         //if Player Hits Collider
         if (other.gameObject.layer == 7 || other.gameObject.layer == 9)
         {
-            
+            cartPosition.enabled = false;
             Cart.transform.position = CartSubmissionPoint.transform.position;
             Cart.transform.rotation = CartSubmissionPoint.transform.rotation;
             Cart.transform.parent = CartSubmissionPoint.transform;
             Notification.text = "Bestellung abgeliefert";
-            Notification.color = new Color(0, 0.8f, 0, 0.75f);
+            Notification.color = new Color(0, 0, 1f, 0.75f);
             Notification.gameObject.GetComponent<Animation>().Play();
             orderDisplay.checkCompletion();
             this.gameObject.SetActive(false);

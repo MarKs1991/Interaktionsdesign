@@ -63,9 +63,11 @@ public class CommisionCheck : MonoBehaviour
             
         }
     }
+    /*
     private void OnTriggerExit(Collider other)
     {
         if(Notification.text.Equals(Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!"))
             Notification.text = "";
     }
+    */
 }

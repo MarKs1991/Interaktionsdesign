@@ -32,8 +32,7 @@ public class UISwipe : MonoBehaviour
     void Update()
     {
         transformHmdMatrixtoVirtMatrix();
-        Debug.Log("LOCAL" + transformedVector);
-        Debug.Log("WORLD" + (transformedVector.x - StartingPos.x));
+     
 
         if (!this.GetComponent<Animation>().isPlaying)
         {

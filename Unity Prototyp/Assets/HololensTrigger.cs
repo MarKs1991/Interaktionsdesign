@@ -8,7 +8,7 @@ public class HololensTrigger : MonoBehaviour
     public bool hololensOn = false;
     public GameObject Sphere;
     private bool animStarted = false;
-
+    private bool sphereDestroyed = false;
     private void Start()
     {
         Canvas.SetActive(false);
@@ -17,19 +17,29 @@ public class HololensTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (animStarted && !Sphere.GetComponent<Animation>().isPlaying)
-            Destroy(Sphere);
+        if (Sphere != null)
+        {
+            if (animStarted && !Sphere.GetComponent<Animation>().isPlaying)
+            {
+                Destroy(Sphere);
+
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
+      
         if (other.gameObject.layer == 8)
         {
-            Canvas.SetActive(true);
-            hololensOn = true;
-            Destroy(other.gameObject);
-            Sphere.SetActive(true);
-            Sphere.GetComponent<Animation>().Play();
-            animStarted = true;
+            if (other.gameObject != null)
+            {
+                Canvas.SetActive(true);
+                hololensOn = true;
+                Destroy(other.gameObject);
+                Sphere.SetActive(true);
+                Sphere.GetComponent<Animation>().Play();
+                animStarted = true;
+            }
         }
     }
 }
