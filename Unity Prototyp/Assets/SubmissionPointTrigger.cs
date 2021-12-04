@@ -20,7 +20,7 @@ public class SubmissionPointTrigger : MonoBehaviour
             Cart.transform.rotation = CartSubmissionPoint.transform.rotation;
             Cart.transform.parent = CartSubmissionPoint.transform;
             Notification.text = "Bestellung abgeliefert";
-            Notification.color = new Color(0, 0, 1f, 0.75f);
+            Notification.color = new Color(0, 0.8f, 0, 0.75f);
             Notification.gameObject.GetComponent<Animation>().Play();
             orderDisplay.checkCompletion();
             this.gameObject.SetActive(false);
