@@ -67,7 +67,8 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtDeviceController.cs" />
     <Compile Include="Assets\Scripts\WaypointRef.cs" />
-    <Compile Include="Assets\Weinlager\CreateOrder.cs" />
+    <Compile Include="Assets\Weinlager\Scripts\CreateOrder.cs" />
+    <Compile Include="Assets\Weinlager\Scripts\LookAt.cs" />
     <Compile Include="Assets\CybSDK\Core\Helpers\IVirtDeviceUnityExtensions.cs" />
     <Compile Include="Assets\Scripts\ListComparer.cs" />
     <Compile Include="Assets\CybSDK\Core\Example\Scripts\Elevator.cs" />
@@ -76,7 +77,7 @@
     <Compile Include="Assets\SubmissionPointTrigger.cs" />
     <Compile Include="Assets\Scripts\CommisionCheck.cs" />
     <Compile Include="Assets\CybSDK\Core\Helpers\CVirtComment.cs" />
-    <Compile Include="Assets\Weinlager\UISwipe.cs" />
+    <Compile Include="Assets\Weinlager\Scripts\UISwipe.cs" />
     <Compile Include="Assets\Scripts\RouteVisualizer.cs" />
     <Compile Include="Assets\Scripts\BinWaypointTranslater.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticEmitter.cs" />
@@ -86,7 +87,6 @@
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtPlayerController.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticListener.cs" />
     <Compile Include="Assets\Scripts\BinRef.cs" />
-    <Compile Include="Assets\Weinlager\LookAt.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
