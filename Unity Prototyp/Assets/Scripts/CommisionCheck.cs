@@ -55,7 +55,8 @@ public class CommisionCheck : MonoBehaviour
                 else
                 {
                     Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!";
-                    Notification.gameObject.SetActive(true);
+                    Notification.color = new Color(0.8f, 0, 0, 0.75f);
+                    Notification.gameObject.GetComponent<Animation>().Play();
                 }
 
             }
@@ -65,6 +66,6 @@ public class CommisionCheck : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if(Notification.text.Equals(Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!"))
-        Notification.gameObject.SetActive(false);
+            Notification.text = "";
     }
 }

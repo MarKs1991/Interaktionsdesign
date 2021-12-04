@@ -10,7 +10,7 @@ public class CreateOrder : MonoBehaviour
     public TextMeshProUGUI OrderItemNames;
     public TextMeshProUGUI OrderItemAmounts;
     public GameObject AmountDisplay;
-    [HideInInspector] public List<GameObject> AmountDisplays;
+    public List<GameObject> AmountDisplays;
     private BinRef[] Bins;
     private BinRef[] OrderBins = new BinRef[7];
     private int[] OrderAmounts = new int[7];
@@ -54,6 +54,16 @@ public class CreateOrder : MonoBehaviour
         }
         foreach (GameObject g in AmountDisplays)
             g.SetActive(false);
+    }
+
+    private void Update()
+    {
+        foreach (GameObject g in AmountDisplays)
+        {
+            g.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = g.transform.parent.GetComponent<BinRef>().LeftOverAmountinOrder.ToString();
+            if (g.transform.parent.GetComponent<BinRef>().LeftOverAmountinOrder == 0)
+                g.SetActive(false);                        
+        }
     }
 
     private BinRef getRandomBin()
