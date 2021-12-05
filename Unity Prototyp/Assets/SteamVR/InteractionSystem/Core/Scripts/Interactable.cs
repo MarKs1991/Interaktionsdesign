@@ -310,6 +310,8 @@ namespace Valve.VR.InteractionSystem
             }
 
             attachedToHand = hand;
+            gameObject.AddComponent<Rigidbody>();
+            gameObject.GetComponent<Throwable>().Awake();
         }
 
         protected virtual void OnDetachedFromHand(Hand hand)

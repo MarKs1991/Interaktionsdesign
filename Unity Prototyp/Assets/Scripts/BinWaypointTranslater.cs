@@ -19,7 +19,7 @@ public class BinWaypointTranslater : MonoBehaviour
         }
     }
 
-    private void TranslateBinToWaypoint()
+    public void TranslateBinToWaypoint()
     {
         int i = 0;
         foreach (var itemBin in OrderBins)

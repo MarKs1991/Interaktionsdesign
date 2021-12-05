@@ -10,6 +10,7 @@ public class OrderDisplay : MonoBehaviour
     public Transform ItemAmountUiCollumn;
     public Transform PickedItemAmountUiCollumn;
     public GameObject OrderItemPrefab;
+    public GameObject Order;
 
     public GameObject BinRows;
     //public List<Vector3Int> BinOrderList { get; set; }
@@ -47,6 +48,10 @@ public class OrderDisplay : MonoBehaviour
             }
 
         }
+
+        List<GameObject> a = Order.GetComponent<CreateOrder>().AmountDisplays;
+        foreach (GameObject g in a)
+            g.SetActive(true);
     }
     private void CreateItemUiElement(Transform Parent, string information)
     {
@@ -99,4 +104,16 @@ public class OrderDisplay : MonoBehaviour
             }
         }
     }
+
+    public void checkCompletion()
+    {
+
+
+                ItemNameUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                BinIndexUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                //PickedItemAmountUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+                //ItemAmountUiCollumn.transform.GetChild(BinIndexUiCollumn.childCount - 1).GetComponent<TextMeshProUGUI>().color = new Color(0, 1, 0);
+            
+    }
+    
 }

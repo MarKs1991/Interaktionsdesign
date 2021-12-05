@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CommisionCheck : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CommisionCheck : MonoBehaviour
     public List<Transform> WaggonBoxPositions;
     private int placedBoxes = 0;
     public int PathIndex = 1;
+    public TextMeshProUGUI Notification;
 
 
     private void OnTriggerEnter(Collider other)
@@ -50,9 +52,22 @@ public class CommisionCheck : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!";
+                    Notification.color = new Color(0.8f, 0, 0, 0.75f);
+                    Notification.gameObject.GetComponent<Animation>().Play();
+                }
 
             }
-            Debug.Log("no more needed");
+            
         }
     }
+    /*
+    private void OnTriggerExit(Collider other)
+    {
+        if(Notification.text.Equals(Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!"))
+            Notification.text = "";
+    }
+    */
 }
