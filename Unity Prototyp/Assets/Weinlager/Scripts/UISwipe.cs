@@ -29,7 +29,7 @@ public class UISwipe : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transformHmdMatrixtoVirtMatrix();
      
