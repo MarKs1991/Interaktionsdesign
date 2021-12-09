@@ -113,12 +113,12 @@ public class WarehouseNavigation : MonoBehaviour
 
                     routeVisualizer.isBin = new List<bool>(isBin);
                     routeVisualizer.Breakpoints = new List<int>(Breakpoints);
-                    //orderDisplay.BinOrderList = new List<Vector3Int>(shortestBinsCombination);
+                //orderDisplay.BinOrderList = new List<Vector3Int>(shortestBinsCombination);
 
 
-
+                Debug.Log(string.Join(",", targetPosSorted) + "is the shortest Route with " + traveledDistance + "Steps");
                     
-                    Debug.Log(string.Join(",", Breakpoints));
+                    //Debug.Log(string.Join(",", Breakpoints));
                 }
            
         }        
@@ -167,7 +167,7 @@ public class WarehouseNavigation : MonoBehaviour
     {
         if (employeePosition.y != targetPosCollumn)
         {
-            traveledDistance = traveledDistance + (Mathf.Abs(targetPosCollumn - employeePosition.y)*2);
+            traveledDistance = traveledDistance + (Mathf.Abs(targetPosCollumn - employeePosition.y)*6);
             employeePosition.y = targetPosCollumn;
             saveSubWaypoints(employeePosition.x, employeePosition.y, false);
         }
