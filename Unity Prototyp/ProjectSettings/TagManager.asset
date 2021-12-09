@@ -12,6 +12,7 @@ TagManager:
   - picked Traverse
   - picked Rahmen
   - normal
+  - projectile
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Hololens
   - Head
   - Order
-  - 
+  - MapOnly
   - 
   - 
   - 

@@ -43,7 +43,9 @@ public class RouteVisualizer : MonoBehaviour
             else if (isBin[i])
             {              
                 NextWaypoint = BinRows[SubWaypoints[i].y - 1].gameObject.transform.GetChild(SubWaypoints[i].x - 1).gameObject.transform.position;
-                RouteLine.SetPosition(i - startIndex, NextWaypoint);          
+                RouteLine.SetPosition(i - startIndex, NextWaypoint);
+                int ChildCount = BinRows[SubWaypoints[i].y - 1].gameObject.transform.GetChild(SubWaypoints[i].x - 1).gameObject.transform.childCount - 1;
+                BinRows[SubWaypoints[i].y - 1].gameObject.transform.GetChild(SubWaypoints[i].x - 1).gameObject.transform.GetChild(ChildCount).gameObject.SetActive(true);
             }
             
             else

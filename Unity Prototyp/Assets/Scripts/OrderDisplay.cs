@@ -49,9 +49,9 @@ public class OrderDisplay : MonoBehaviour
 
         }
 
-        List<GameObject> a = Order.GetComponent<CreateOrder>().AmountDisplays;
-        foreach (GameObject g in a)
-            g.SetActive(true);
+        //List<GameObject> a = Order.GetComponent<CreateOrder>().AmountDisplays;
+        //foreach (GameObject g in a)
+            //g.SetActive(false);
     }
     private void CreateItemUiElement(Transform Parent, string information)
     {
