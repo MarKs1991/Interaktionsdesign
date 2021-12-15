@@ -89,6 +89,7 @@
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtPlayerController.cs" />
     <Compile Include="Assets\CybSDK\Core\Scripts\CVirtHapticListener.cs" />
     <Compile Include="Assets\Scripts\BinRef.cs" />
+    <Compile Include="Assets\Weinlager\Scripts\MapPosition.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

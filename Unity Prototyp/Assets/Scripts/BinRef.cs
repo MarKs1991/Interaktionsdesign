@@ -17,6 +17,7 @@ public class BinRef : MonoBehaviour
     public int ItemAmountinOrder = 0;
     public GameObject BinNumberPrefabOdd;
     public GameObject BinNumberPrefabEven;
+    public GameObject BinNumber;
 
     public bool lastItem = false;
 
@@ -40,7 +41,8 @@ public class BinRef : MonoBehaviour
         
         WaypointIndex = new Vector2Int(Waypoint.transform.GetSiblingIndex(), WaypointList.transform.GetSiblingIndex());
 
-        GameObject BinNumber = RowIndex % 2 != 0 ? Instantiate(BinNumberPrefabOdd, gameObject.transform) : Instantiate(BinNumberPrefabEven, gameObject.transform);
+        BinNumber = BinIndex.x % 2 != 0 ? Instantiate(BinNumberPrefabOdd, gameObject.transform) : Instantiate(BinNumberPrefabEven, gameObject.transform);
+        BinNumber.GetComponent<TextMeshPro>().text = BinIndex.x.ToString() + "-" + BinIndex.y.ToString();
 
         //Platzhalter
         //string[] weinArray = { "Chardonnay", "Gewürztraminer", "Müller-Thurgau", "Gewürztraminer", "Muskateller", "Riesling", "Sauvignon Blanc", "Cabernet Sauvignon"};

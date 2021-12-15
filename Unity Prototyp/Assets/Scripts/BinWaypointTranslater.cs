@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BinWaypointTranslater : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class BinWaypointTranslater : MonoBehaviour
             Bin.GetComponent<BinRef>().inOrderList = true;
             Bin.GetComponent<BinRef>().notPicked = true;
             Bin.GetComponent<BinRef>().notTracked = true;
+
+            Bin.GetComponent<BinRef>().BinNumber.GetComponent<TextMeshPro>().color = new Color(1, 1, 1, 1);
+
             SearchedWaypoints.Add(WaypointIndex);
             //if(i == OrderBins.Count - 1)
            // {
