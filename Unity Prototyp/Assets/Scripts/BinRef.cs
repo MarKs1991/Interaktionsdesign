@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BinRef : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BinRef : MonoBehaviour
     public string BinItem;
     public int LeftOverAmountinOrder = 0;
     public int ItemAmountinOrder = 0;
+    public GameObject BinNumberPrefabOdd;
+    public GameObject BinNumberPrefabEven;
 
     public bool lastItem = false;
 
@@ -36,6 +39,8 @@ public class BinRef : MonoBehaviour
         Waypoint = WaypointList.transform.GetChild(offsetWaypointIndex).gameObject;
         
         WaypointIndex = new Vector2Int(Waypoint.transform.GetSiblingIndex(), WaypointList.transform.GetSiblingIndex());
+
+        GameObject BinNumber = RowIndex % 2 != 0 ? Instantiate(BinNumberPrefabOdd, gameObject.transform) : Instantiate(BinNumberPrefabEven, gameObject.transform);
 
         //Platzhalter
         //string[] weinArray = { "Chardonnay", "Gewürztraminer", "Müller-Thurgau", "Gewürztraminer", "Muskateller", "Riesling", "Sauvignon Blanc", "Cabernet Sauvignon"};
