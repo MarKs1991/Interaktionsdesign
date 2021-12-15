@@ -62,9 +62,10 @@ public class RouteVisualizer : MonoBehaviour
                 }
 
                 RouteLine.SetPosition(i - startIndex, BinWaypoint);
-                GameObject arrowInst = GameObject.Instantiate(Arrow, new Vector3(BinWaypoint.x, 5, BinWaypoint.z), Quaternion.identity, ArrowList.transform);
+                GameObject arrowInst = GameObject.Instantiate(Arrow, new Vector3(BinWaypoint.x, 0.5f, BinWaypoint.z), Quaternion.identity, ArrowList.transform);
                 arrowInst.transform.LookAt(NextWaypoint);
-                arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 0);
+                arrowInst.transform.localEulerAngles = new Vector3(0, arrowInst.transform.localEulerAngles.y, 90);
+                arrowInst.transform.localScale *= 2;
             }        
         }
     }
