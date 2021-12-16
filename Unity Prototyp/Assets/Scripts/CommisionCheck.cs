@@ -56,7 +56,8 @@ public class CommisionCheck : MonoBehaviour
                 {
                     Notification.text = "Keine weiteren Güter von diesem Lagerplatz mehr nötig!";
                     Notification.color = new Color(0.8f, 0, 0, 0.75f);
-                    Notification.gameObject.GetComponent<Animation>().Play();
+                    Notification.GetComponent<Animation>().Play();
+                    Notification.transform.parent.GetComponent<Animation>().Play();
                 }
 
             }
