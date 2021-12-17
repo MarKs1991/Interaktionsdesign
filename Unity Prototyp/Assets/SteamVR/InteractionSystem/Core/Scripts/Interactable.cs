@@ -311,7 +311,10 @@ namespace Valve.VR.InteractionSystem
 
             attachedToHand = hand;
             gameObject.AddComponent<Rigidbody>();
+            
             gameObject.GetComponent<Rigidbody>().mass = 5;
+            gameObject.GetComponent<Rigidbody>().drag = 2;
+            gameObject.GetComponent<Rigidbody>().angularDrag = .3f;
             gameObject.GetComponent<Throwable>().Awake();
         }
 

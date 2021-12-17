@@ -72,6 +72,7 @@ namespace Valve.VR.InteractionSystem
             if (gameObject.GetComponent<Rigidbody>())
             {
                 rigidbody = GetComponent<Rigidbody>();
+                rigidbody.drag = 1;
                 rigidbody.maxAngularVelocity = 50.0f;
             }
 
