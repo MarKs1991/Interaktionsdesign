@@ -27,7 +27,7 @@ public class OrderDisplay : MonoBehaviour
                 BinRef binRef = BinRows.transform.GetChild(BinOrderList[i].x - 1).gameObject.transform.GetChild(BinOrderList[i].y - 1).gameObject.GetComponent<BinRef>();
 
                 string ItemName = binRef.BinItem;
-                string BinIndex = binRef.BinIndex.ToString();
+                string BinIndex = binRef.BinIndex.x.ToString() +" - " + binRef.BinIndex.y.ToString();
                 string ItemAmount = binRef.ItemAmountinOrder.ToString();
 
                 CreateItemUiElement(ItemNameUiCollumn, ItemName);

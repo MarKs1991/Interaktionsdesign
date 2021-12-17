@@ -49,7 +49,7 @@ public class CreateOrder : MonoBehaviour
             GameObject a = Instantiate<GameObject>(AmountDisplay);
 
             a.transform.SetParent(OrderBins[z].gameObject.transform, false);
-            a.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = OrderAmounts[z].ToString();
+            a.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = OrderAmounts[z].ToString() + "x";
             AmountDisplays.Add(a);
         }
         foreach (GameObject g in AmountDisplays)
@@ -60,7 +60,7 @@ public class CreateOrder : MonoBehaviour
     {
         foreach (GameObject g in AmountDisplays)
         {
-            g.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = g.transform.parent.GetComponent<BinRef>().LeftOverAmountinOrder.ToString();
+            g.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = g.transform.parent.GetComponent<BinRef>().LeftOverAmountinOrder.ToString() + "x";
             if (g.transform.parent.GetComponent<BinRef>().LeftOverAmountinOrder == 0)
                 g.SetActive(false);                        
         }
